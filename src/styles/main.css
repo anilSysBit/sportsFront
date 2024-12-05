@@ -157,17 +157,21 @@ a {
 }
 
 nav {
-  box-shadow: 0px 0px 5px rgb(227, 227, 227);
+  border: 1px solid rgb(151, 151, 151);
   border-radius: 50px;
   margin-top: 30px;
-  background-color: #131610;
   height: 66px;
   z-index: 1;
   width: 100%;
   padding: 5px;
   display: flex;
   justify-content: space-around;
-  position: relative;
+  position: sticky;
+  top: 20px;
+  background: linear-gradient(to right, rgba(44, 44, 44, 0.8), rgba(35, 35, 35, 0.8));
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
+  z-index: 50;
 }
 nav .blur_back {
   border: 2px solid white;
@@ -177,7 +181,8 @@ nav .blur_back {
   width: 100%;
   height: 100%;
   opacity: 0.2;
-  filter: blur(2px);
+  -webkit-backdrop-filter: blur(8px);
+          backdrop-filter: blur(8px);
 }
 nav .part1 {
   width: 30%;
@@ -215,7 +220,7 @@ nav .part2 ul {
   width: 100%;
 }
 nav .part2 ul li {
-  font-size: 17px;
+  font-size: 1rem;
   text-transform: uppercase;
 }
 nav .part2 ul .join_now_button {
@@ -299,7 +304,7 @@ nav .part3 {
   padding-right: 20px;
   min-width: 100px;
   min-height: 44px;
-  background-color: #04206d;
+  background-color: #65558F;
   color: white;
   border-radius: 50px;
   border: none;
@@ -312,7 +317,7 @@ nav .part3 {
   border: 1px solid white;
 }
 .leaderboard_button:hover {
-  background-color: #010c2a;
+  background-color: #674dac;
   box-shadow: 0px 0px 10px gray;
 }
 .leaderboard_button i {
@@ -1569,4 +1574,488 @@ nav .part3 {
 .two_teams_vs .team2 {
   width: 50%;
   transform: rotate(-90deg);
+}
+
+.events {
+  padding: 0px 50px;
+  margin: 0 auto;
+}
+.events__title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: white;
+  margin-top: 30px;
+}
+.events__grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+.events__card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: transform 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.events__card:hover {
+  transform: translateY(-5px);
+}
+.events__card-image {
+  width: 100%;
+  height: 150px;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+.events__card-image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.events__card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.events__card-date {
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+.events__card-buttons {
+  display: flex;
+  gap: 1rem;
+}
+.events__card-buttons button {
+  flex: 1;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.events__card-buttons button.details {
+  background: #65558F;
+  color: #ffffff;
+}
+.events__card-buttons button.details:hover {
+  background: #3438ed;
+}
+.events__card-buttons button.scores {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+.events__card-buttons button.scores:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  min-height: 70vh;
+  border-radius: 10px;
+  margin-top: 30px;
+  padding: 0px 50px;
+}
+.login-page .login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  border-radius: 20px;
+  padding: 1px;
+  width: 80%;
+  background-image: linear-gradient(to right, rgb(38, 39, 49), rgb(35, 38, 39));
+}
+.login-page .login-container .login-card {
+  border-radius: 20px;
+  padding: 3rem;
+  width: 50%;
+  text-align: center;
+  position: relative;
+}
+.login-page .login-container .login-card .player-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.login-page .login-container .login-card .player-wrapper .player-image {
+  width: 150px;
+  height: auto;
+}
+.login-page .login-container .login-card h2 {
+  margin-bottom: 2rem;
+  color: #fff;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.login-page .login-container .login-card form .input-group {
+  margin-bottom: 1rem;
+  position: relative;
+}
+.login-page .login-container .login-card form .input-group .login-input {
+  width: 100%;
+  padding: 0.75rem 2rem;
+  border: 1px solid #444;
+  border-radius: 20px;
+  background-color: #1e1e1e;
+  color: #fff;
+  font-size: 1rem;
+}
+.login-page .login-container .login-card form .input-group .login-input:focus {
+  outline: none;
+  border-color: #6a5acd;
+}
+.login-page .login-container .login-card form .input-group .password-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  color: #aaa;
+  cursor: pointer;
+}
+.login-page .login-container .login-card form .forgot-password {
+  display: block;
+  margin-bottom: 1.5rem;
+  color: #aaa;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+.login-page .login-container .login-card form .forgot-password:hover {
+  text-decoration: underline;
+}
+.login-page .login-container .login-card form .login-btn {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #65558F;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: background-color 0.3s;
+}
+.login-page .login-container .login-card form .login-btn:hover {
+  background-color: #5a4ebc;
+}
+.login-page .login-container .login-card form .google-login-btn {
+  width: 100%;
+  padding: 0.75rem;
+  color: orange;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+.login-page .login-container .login-card form .google-login-btn:hover {
+  background-color: #f5f5f5;
+}
+
+.responsive-table-box {
+  color: white;
+}
+.responsive-table-box .filter_box {
+  padding: 10px 0px;
+  display: flex;
+  justify-content: right;
+  margin-bottom: 10px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  place-items: center;
+}
+.responsive-table-box .filter_box .search {
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+.responsive-table-box .filter_box .search .global_btn {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  margin: 0;
+  margin-left: 2px;
+  border-radius: 10px;
+  color: black;
+}
+.responsive-table-box .filter_box a {
+  background-color: white;
+  color: black;
+  padding: 10px;
+  display: flex;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+.responsive-table-box .filter_box input {
+  height: 40px;
+  min-width: 200px;
+  background-color: transparent;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 10px;
+  color: white;
+}
+.responsive-table-box .filter_box input:focus {
+  outline: none;
+}
+.responsive-table-box .table_avatar_box {
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  place-items: center;
+}
+.responsive-table-box .table_avatar_box .team {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.responsive-table-box .table_avatar_box .team .avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.responsive-table-box .table_avatar_box .team .avatar img {
+  height: 100%;
+  width: 100%;
+}
+.responsive-table-box .table_avatar_box .team p {
+  font-size: 0.9rem;
+}
+
+.responsive-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 18px;
+  overflow: hidden;
+  color: white;
+}
+.responsive-table .selected {
+  background-color: green;
+}
+.responsive-table .checkbox {
+  height: 20px;
+  width: 20px;
+  cursor: pointer;
+}
+.responsive-table th, .responsive-table td {
+  padding: 20px 15px;
+  font-size: 0.9rem;
+  text-align: left;
+}
+.responsive-table th a, .responsive-table td a {
+  color: white;
+  font-size: 0.9rem;
+}
+.responsive-table thead th {
+  color: #ffffff;
+  font-weight: bold;
+  border-bottom: 1px solid #444;
+}
+.responsive-table tbody tr:hover {
+  background-color: #333;
+  cursor: pointer;
+}
+.responsive-table tbody td {
+  border-bottom: 1px solid #444;
+}
+.responsive-table .td_image img {
+  max-height: 70px;
+  border-radius: 10px;
+}
+.responsive-table .td_actions {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.responsive-table .td_actions button {
+  border-radius: 10px;
+  min-width: 20px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+.responsive-table .td_actions button .icon {
+  font-size: 15px;
+}
+.responsive-table .td_detail p {
+  font-size: 0.9rem;
+}
+
+.event_status {
+  padding: 2px;
+  box-shadow: 1px 1px 10px black;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.event_status.Initiated, .event_status.initiated {
+  background-color: rgb(48, 48, 246);
+}
+.event_status.Running, .event_status.running {
+  background-color: green;
+}
+.event_status.Error, .event_status.Expired, .event_status.expired, .event_status.error {
+  background-color: orange;
+}
+.event_status.Cancelled, .event_status.cancelled {
+  background-color: rgb(187, 28, 28);
+}
+
+.match_listing {
+  margin-top: 20px;
+  padding: 0px 50px;
+}
+.match_listing h2 {
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.team-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.team-card {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+.team-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+.team-card .team-logo {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+.team-card .team-logo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-bottom: 5px solid var(--global_blue);
+}
+.team-card .team-details {
+  padding: 15px;
+  text-align: center;
+  color: #fff;
+}
+.team-card .team-details .team-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ff9800;
+}
+.team-card .team-details .team-info {
+  font-size: 1rem;
+  margin-bottom: 8px;
+  color: #bbb;
+}
+.team-card .team-details .show-more {
+  margin-top: 15px;
+  background-color: #ff9800;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.team-card .team-details .show-more:hover {
+  background-color: #cc7a00;
+}
+
+.match-card {
+  background-color: #1f1f1f;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0px 6px rgba(152, 150, 150, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.match-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+}
+.match-card .team-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+.match-card .team-info .vs {
+  font-size: 1.5rem;
+  color: #bbb;
+}
+.match-card .side {
+  width: 25%;
+}
+.match-card .side.middle {
+  width: 50%;
+  place-items: center;
+  flex-direction: column;
+}
+.match-card .side.middle .match-details {
+  text-align: center;
+}
+.match-card .side.middle .match-details p {
+  font-size: 1rem;
+}
+.match-card .side.middle .leaderboard_button {
+  min-width: 200px;
+  margin: 5px;
+}
+.match-card .side.team-box {
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+.match-card .team-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.match-card .team-details .team-logo {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 20px;
+  height: 150px;
+  width: 150px;
+  border-radius: 50%;
+}
+.match-card .team-details .team-name {
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 5px;
 }/*# sourceMappingURL=main.css.map */

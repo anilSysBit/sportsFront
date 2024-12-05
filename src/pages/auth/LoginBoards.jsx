@@ -4,12 +4,12 @@ import { Link } from 'react-router-dom';
 const LoginBoards = () => {
   // Fake data for event organizers and teams
   const authOptions = [
-    {
-      title: 'Event Organizer',
-      image: 'https://img.freepik.com/free-vector/purple-blue-gradient_78370-295.jpg?t=st=1724684670~exp=1724688270~hmac=2c5b9964d4aa0a2bf99cb853c9a4357bfdb8f7e18268137bc4d63eb0c4b2a66f&w=1380',
-      loginUrl: '/organizer/login',
-      registerUrl: '/organizer/register'
-    },
+    // {
+    //   title: 'Event Organizer',
+    //   image: 'https://img.freepik.com/free-vector/purple-blue-gradient_78370-295.jpg?t=st=1724684670~exp=1724688270~hmac=2c5b9964d4aa0a2bf99cb853c9a4357bfdb8f7e18268137bc4d63eb0c4b2a66f&w=1380',
+    //   loginUrl: '/organizer/login',
+    //   registerUrl: '/organizer/register'
+    // },
     {
       title: 'Team',
       image: 'https://img.freepik.com/premium-photo/photo-french-national-team-field_1008415-34919.jpg?w=826',

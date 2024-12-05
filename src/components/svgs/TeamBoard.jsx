@@ -5,7 +5,7 @@ import GroundSvg from './GroundSvg'
 const TeamBoard = () => {
     const GroupWithTeams =({className})=>{
         const jersey_data ={
-            primaryColor:'blue',
+            primaryColor:'darkblue',
             secondaryColor:'purple',
             textColor:"white",
             neckLineColor:'white',

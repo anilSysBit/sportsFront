@@ -1,0 +1,46 @@
+import React,{useState,useEffect} from 'react'
+import EventBanner from '../assets/images/eventbanner1.png'
+const EventLayout = () => {
+    const [scrolled, setScrolled] = useState(false);
+
+    const events = [
+        {
+            title: 'Kathmandu Cricket Cup',
+            date: '1 Sep - 15 Sep',
+            imageUrl: EventBanner
+          },
+        {
+          title: 'Chitwan Football League',
+          date: 'Upto 25 Aug',
+          imageUrl: 'https://img.freepik.com/premium-photo/euro-2024-spain-england-flags-collage_23-2151698246.jpg?w=1380'
+        },
+        {
+          title: 'Kathmandu Cricket Cup',
+          date: '1 Sep - 15 Sep',
+          imageUrl: 'https://static.vecteezy.com/system/resources/previews/005/753/717/non_2x/football-tournament-background-abstract-sport-symbol-template-design-banner-for-sport-event-illustrations-vector.jpg'
+        },
+
+      ];
+  return (
+    <main className="events">
+        <h1 className="events__title">Ongoing Events</h1>
+        <div className="events__grid">
+          {events.map((event, index) => (
+            <div key={index} className="events__card">
+              <div className="events__card-image">
+                <img src={event.imageUrl} alt={event.title} />
+              </div>
+              <h3 className="events__card-title">{event.title}</h3>
+              <p className="events__card-date">{event.date}</p>
+              <div className="events__card-buttons">
+                <button className="details">Event Detail</button>
+                <button className="scores">Scores</button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
+  )
+}
+
+export default EventLayout
