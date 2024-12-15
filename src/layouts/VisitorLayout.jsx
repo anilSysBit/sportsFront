@@ -49,7 +49,7 @@ const VisitorLayout = () => {
               <Route path='/events' element={<EventLayout/>} />
               <Route path='' element={<Homepage/>} />
               <Route path='teams' element={<TeamList/>}/>
-              <Route path='jersey' element={<TeamBoard/>}/>
+              <Route path='jersey/:team_id' element={<TeamBoard/>}/>
               <Route path='matches' element={<MatchesTable/>}/>
 
         

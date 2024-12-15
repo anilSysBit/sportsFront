@@ -19,7 +19,7 @@ const MainNav = () => {
         <Link to="/">
           <div className="logo">
             <img
-              src="https://th.bing.com/th/id/OIG4.onB2FLDSZtb9ECxW7JEW?w=1024&h=1024&rs=1&pid=ImgDetMain"
+              src="https://th.bing.com/th/id/OIG1.egQEJxg7JTBbpWL.xSuQ?pid=ImgGn"
               alt="logo"
             />
             <p>NSO</p>

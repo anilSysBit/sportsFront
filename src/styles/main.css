@@ -157,6 +157,7 @@ a {
 }
 
 nav {
+  margin-bottom: 20px;
   border: 1px solid rgb(151, 151, 151);
   border-radius: 50px;
   margin-top: 30px;
@@ -1061,12 +1062,10 @@ nav .part3 {
   margin-top: 10px;
 }
 
-.user_profile {
-  padding: 0px 100px;
-}
 .user_profile .seller_profile_sm .banner_container {
   overflow: hidden;
   padding: 0;
+  width: 100%;
   position: relative;
   min-height: 400px;
   height: 200px;
@@ -1446,20 +1445,25 @@ nav .part3 {
 }
 
 .team_box_container {
-  border: 2px solid white;
-  height: 80vh;
+  padding: 20px;
+  height: 90vh;
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
+  margin-top: 20px;
 }
 .team_box_container .box {
   width: 49%;
   height: 100%;
+}
+.team_box_container .box.team1 {
   border: 2px solid gray;
+}
+.team_box_container .player_list_box {
+  height: 100%;
 }
 
 .team_ground {
-  border: 2px solid green;
   position: relative;
   display: flex;
   place-content: center;
@@ -1963,7 +1967,7 @@ nav .part3 {
   color: #fff;
 }
 .team-card .team-details .team-name {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   margin-bottom: 10px;
   color: #ff9800;
@@ -2058,4 +2062,151 @@ nav .part3 {
   color: #fff;
   font-size: 1rem;
   margin-top: 5px;
+}
+
+.user_profile {
+  padding: 0px 20px;
+}
+.user_profile .seller_profile_sm .banner_container {
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  min-height: 300px;
+  height: 200px;
+  border-radius: 10px;
+  display: block;
+}
+.user_profile .seller_profile_sm .banner_container .img_container {
+  height: 70%;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.user_profile .seller_profile_sm .banner_container .cards {
+  width: 70%;
+  float: right;
+  margin-top: 20px;
+  display: flex;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  padding: 10px;
+}
+.user_profile .seller_profile_sm .banner_container .cards .card {
+  padding: 3px;
+  min-width: 100px;
+  display: flex;
+  place-content: center;
+  border-radius: 5px;
+}
+.user_profile .seller_profile_sm .banner_container .cards .seller {
+  background-color: var(--gb-orange-color);
+}
+.user_profile .seller_profile_sm .banner_container .cards .active {
+  background-color: var(--gb-green-color);
+  color: white;
+}
+.user_profile .seller_profile_sm .banner_container .cards .admin {
+  background-color: var(--blue-strong);
+}
+.user_profile .seller_profile_sm .banner_container .cards .staff {
+  background-color: purple;
+  color: white;
+}
+.user_profile .seller_profile_sm .banner_container .cards .customer {
+  background-color: rgb(187, 175, 0);
+  color: white;
+}
+.user_profile .seller_profile_sm .banner_container .img_container {
+  height: 300px;
+}
+.user_profile .seller_profile_sm .banner_container .profile_picture {
+  height: 150px;
+  background-color: #1c1e1a;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  min-width: 400px;
+  position: absolute;
+  left: 50px;
+  bottom: 10px;
+  display: flex;
+  padding: 10px;
+  color: white;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.user_profile .seller_profile_sm .banner_container .profile_picture .img_box {
+  height: 100px;
+  width: 100px;
+  background-color: white;
+  box-shadow: 1px 1px 10px white;
+  border-radius: 5px;
+  display: flex;
+  border: 1px solid gray;
+}
+.user_profile .seller_profile_sm .banner_container .profile_picture .img_box img {
+  margin: auto;
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+}
+.user_profile .seller_profile_sm .banner_container .profile_picture .details {
+  margin-top: 10px;
+}
+.user_profile .seller_profile_sm .banner_container .profile_picture .details h2 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.user_profile .seller_profile_sm .banner_container .profile_picture .details h2 .verification {
+  font-size: 0.7rem;
+  padding: 3px;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  background-color: green;
+}
+.user_profile .seller_profile_sm .banner_container .profile_picture .details h2 .verification.verified {
+  background-color: green;
+}
+.user_profile .seller_profile_sm .banner_container .profile_picture .details h2 .verification.unverified {
+  background-color: red;
+}
+.user_profile .seller_profile_sm .banner_container .profile_picture .details p {
+  font-size: 0.9rem;
+}
+.user_profile .seller_profile_sm .coach_info {
+  display: flex;
+  min-height: 300px;
+  margin-top: 20px;
+}
+.user_profile .seller_profile_sm .coach_info .box_sm {
+  border-radius: 10px;
+  margin: auto;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  background-color: var(--box-color);
+}
+.user_profile .seller_profile_sm .coach_info .box_sm .detail_box {
+  padding: 5px;
+  width: 50%;
+}
+.user_profile .seller_profile_sm .coach_info .box_sm .detail_box p {
+  font-size: 0.8rem;
+}
+.user_profile .seller_profile_sm .coach_info .img_box {
+  width: 50%;
+  height: 100%;
+  display: flex;
+}
+.user_profile .seller_profile_sm .coach_info .img_box img {
+  margin: auto;
+  max-height: 250px;
+  border-radius: 8px;
+}
+.user_profile .seller_profile_sm .players_table {
+  margin-top: 20px;
 }/*# sourceMappingURL=main.css.map */

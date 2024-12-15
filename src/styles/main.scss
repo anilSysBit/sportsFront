@@ -184,6 +184,7 @@ a {
 }
 
 nav {
+  margin-bottom: 20px;
   border: 1px solid rgb(151, 151, 151);
   // box-shadow: 0px 0px 5px rgb(227, 227, 227);
   border-radius: 50px;
@@ -1239,16 +1240,18 @@ nav {
 
 
 .user_profile {
-  padding: 0px 100px;
+  
   .seller_profile_sm {
     .banner_container {
       overflow: hidden;
       padding: 0;
       // background-color: white;
       // border: 1px solid white;
+      width: 100%;
       position: relative;
       min-height: 400px;
       height: 200px;
+    
       display: block;
       // border: 10px solid blue;
       // background-color: white;
@@ -1355,6 +1358,9 @@ nav {
     }
   }
 }
+
+
+
 .formation_header{
   margin-top: 50px;
   text-align: center;
@@ -1679,22 +1685,32 @@ nav {
 
 
 .team_box_container{
-  border: 2px solid white;
-  height: 80vh;
+  padding: 20px;
+  // border: 2px solid white;
+  height: 90vh;
   display:flex;
   justify-content: space-between;
   flex-wrap: nowrap;
+  margin-top: 20px;
   .box{
     width:49%; 
     height: 100%;
     // width: 100%;
+    &.team1{
     border: 2px solid gray;
+      
+    }
 
+  }
+  .player_list_box{
+    // overflow-y: auto;
+    height: 100%;
+    // border: 1px solid white;
   }
 }
 
 .team_ground{
-  border: 2px solid green;
+  // border: 2px solid green;
   position: relative;
   display: flex;
   place-content: center;
@@ -2310,7 +2326,7 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
     color: #fff;
 
     .team-name {
-      font-size: 1.5rem;
+      font-size: 1rem;
       font-weight: bold;
       margin-bottom: 10px;
       color: $accent-color;
@@ -2442,4 +2458,178 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
     }
   }
 
+}
+
+
+
+.user_profile {
+  padding: 0px 20px;
+  .seller_profile_sm {
+    .banner_container {
+      overflow: hidden;
+      padding: 0;
+      position: relative;
+      min-height: 300px;
+      height: 200px;
+      border-radius: 10px;
+      // background-size: contain;
+      display: block;
+      .img_container {
+        // max-height: 250px;
+        // border: 5px solid blue;
+        height: 70%;
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+      }
+      .cards {
+        // border: 2px solid black;
+        width: 70%;
+        float: right;
+        margin-top: 20px;
+        display: flex;
+        column-gap: 20px;
+        padding: 10px;
+        .card {
+          padding: 3px;
+          min-width: 100px;
+          display: flex;
+          place-content: center;
+          border-radius: 5px;
+        }
+        .seller {
+          background-color: var(--gb-orange-color);
+        }
+        .active {
+          background-color: var(--gb-green-color);
+          color: white;
+        }
+        .admin {
+          background-color: var(--blue-strong);
+        }
+        .staff {
+          background-color: purple;
+          color: white;
+        }
+        .customer {
+          background-color: rgb(187, 175, 0);
+          color: white;
+        }
+      }
+      .img_container{
+        height: 300px;
+      }
+      .profile_picture {
+        // border: 2px solid black;
+        height: 150px;
+        // width: 400px;
+        background-color: #1c1e1a;
+        border-radius: 10px;
+        box-shadow: 1px 1px 10px black;
+        min-width: 400px;
+
+        position: absolute;
+        left: 50px;
+        bottom: 10px;
+        display: flex;
+        // place-items: center;
+        padding: 10px;
+        color: white;
+        column-gap: 20px;
+        .img_box {
+          height: 100px;
+          // border: 2px solid gray;
+          width: 100px;
+          background-color: white;
+          box-shadow: 1px 1px 10px white;
+          border-radius: 5px;
+          display: flex;
+          border: 1px solid gray;
+
+          img {
+            margin: auto;
+            border-radius: 5px;
+            height: 100%;
+            width: 100%;
+            // border: 2px solid black;
+          }
+        }
+        .details {
+          margin-top: 10px;
+          h2 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            // mix-blend-mode: difference;
+            .verification{
+              // border: 1px solid white;
+              font-size: 0.7rem;
+              padding: 3px;
+              border-radius: 10px;
+              padding-left: 5px;
+              padding-right: 5px;
+              background-color: green;
+
+              &.verified{
+                background-color: green;
+              }
+              &.unverified{
+                background-color: red;
+              }
+            }
+          }
+          p {
+            // mix-blend-mode: difference;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+    .coach_info{
+      // border: 1px solid white;
+      display: flex;
+      min-height: 300px;
+      margin-top: 20px;
+      .box_sm{
+        border-radius: 10px;
+        margin: auto;
+        height: 100%;
+        width: 50%;
+        display: flex;
+        place-content: center;
+        place-items: center;
+        // flex-direction: column;
+        justify-content: space-between;
+        padding: 15px;
+        background-color: var(--box-color);
+
+        .detail_box{
+          padding: 5px;
+          width: 50%;
+          // border: 1px solid white;
+
+          p{
+            font-size: 0.8rem;
+          }
+        }
+      }
+      .img_box{
+        width: 50%;
+        // border: 1px solid white;
+        height: 100%;
+        display: flex;
+
+        img{
+          margin: auto;
+          max-height: 250px;
+          // height: 90%;
+          border-radius: 8px;
+          // box-shadow: 1px 1px 5px white;
+        }
+      }
+    }
+
+    .players_table{
+      margin-top: 20px;
+    }
+  }
 }
