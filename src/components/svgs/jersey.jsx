@@ -6,10 +6,38 @@ export const Jersey = ({
   secondaryColor,
   neckLineColor,
   textColor,
+  title,
+  showPlayerPop,
+  selectedPlayer,
 }) => {
+
+  console.log('selected player on jersey',selectedPlayer)
   const neckLine = neckLineColor || "#659C35";
+  const defaultImage = "https://th.bing.com/th/id/OIP.lyt_Zapq7-UebZqigfhcngHaHa?rs=1&pid=ImgDetMain"
+
+  const PlayerPopCard =({name="Default Name",position="Not Specified",jersey="10",display=true})=>{
+    return(
+        <div className={`player_pop_card ${display ? 'open' : ''}`} style={{display:display ? 'block':'none'}}>
+            <div className="img_container">
+                <img src={defaultImage} alt="" />
+                
+            </div>
+            <div className="detail_box">
+                <p className='jersey'>{selectedPlayer?.jersey_no}</p>
+                <p className='name'>{selectedPlayer?.name}</p>
+                <p className='detail'> {selectedPlayer?.designation}</p>
+                
+            </div>
+        </div>
+    )
+}
+
+console.log(className,selectedPlayer.position_display)
+
   return (
-    <div className={`jersey_container ${className}`}>
+    <>
+    <div className={`jersey_container ground_jersey ${className}`} title={title}>
+      {selectedPlayer.id && <PlayerPopCard display={selectedPlayer.position_display.toLowerCase() === className ? true : false}/>}
       <style>{`
             .jersey_container{
                 // border:1px solid white;
@@ -87,5 +115,6 @@ export const Jersey = ({
         <p>{name}</p>
       </div>
     </div>
+    </>
   );
 };

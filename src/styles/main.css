@@ -1460,6 +1460,7 @@ nav .part3 {
   border: 2px solid gray;
 }
 .team_box_container .player_list_box {
+  overflow-y: auto;
   height: 100%;
 }
 
@@ -1514,6 +1515,22 @@ nav .part3 {
 .team_ground .ground_jersey.front.center-right {
   top: 2%;
   right: 30%;
+}
+.team_ground .jersey_container .player_pop_card {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  background-color: black;
+  transition: 0.5s ease-in-out;
+  z-index: 10;
+  animation: player_pop 0.5s 1 linear;
+}
+@keyframes player_pop {
+  from {
+    height: 0;
+  }
+  to {
+    height: 200px;
+  }
 }
 .team_ground .goal_post {
   position: absolute;
@@ -1580,6 +1597,40 @@ nav .part3 {
   transform: rotate(-90deg);
 }
 
+.player_pop_card {
+  height: 200px;
+  width: 180px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px gray;
+  overflow: hidden;
+}
+.player_pop_card .img_container {
+  height: 50%;
+}
+.player_pop_card .img_container img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+}
+.player_pop_card .detail_box {
+  text-align: center;
+}
+.player_pop_card .detail_box .name {
+  color: orange;
+  font-weight: 500;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+.player_pop_card .detail_box .jersey {
+  font-weight: bold;
+}
+.player_pop_card .detail_box .detail {
+  font-size: 1rem;
+}
+
 .events {
   padding: 0px 50px;
   margin: 0 auto;
@@ -1629,6 +1680,10 @@ nav .part3 {
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 1rem;
   font-size: 1rem;
+}
+.events__card-detail {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
 }
 .events__card-buttons {
   display: flex;
@@ -1918,6 +1973,36 @@ nav .part3 {
 }
 .event_status.Cancelled, .event_status.cancelled {
   background-color: rgb(187, 28, 28);
+}
+
+.event_nav {
+  display: flex;
+}
+.event_nav ul {
+  margin: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: rgb(87, 86, 86);
+  display: flex;
+  -moz-column-gap: 5px;
+       column-gap: 5px;
+  place-content: center;
+  place-items: center;
+}
+.event_nav ul li {
+  height: 40px;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  min-width: 100px;
+  padding: 10px;
+  cursor: pointer;
+}
+.event_nav ul li:hover {
+  background-color: black;
+}
+.event_nav ul li.active {
+  background-color: black;
 }
 
 .match_listing {

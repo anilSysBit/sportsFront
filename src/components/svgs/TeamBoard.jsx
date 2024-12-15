@@ -15,6 +15,10 @@ const TeamBoard = () => {
     const team_id = params.team_id;
 
 
+
+    const [selectedPlayer,setSelectedPlayer] = useState({});
+
+
     const GroupWithTeams =({className})=>{
         const playerData = fetchedData?.data?.players && fetchedData.data.players
 
@@ -40,9 +44,10 @@ const TeamBoard = () => {
           
         return(
             <div className={`team_ground ${className}`}>
-                {playerData && playerData.map((elem,index)=>{
+                {jersey_data.players && jersey_data.players.map((elem,index)=>{
                     return(
-                    <Jersey className={`ground_jersey ${elem?.position_display?.toLowerCase()}`} name={elem?.name || elem?.name} jersey={elem?.jersey_no} primaryColor={jersey_data.primaryColor} secondaryColor={jersey_data.secondaryColor} textColor={jersey_data.textColor} neckLineColor={jersey_data.neckLineColor}/>
+                    <Jersey title="Hover on Table to show the Player Details" className={`${elem?.className}`} name={elem?.name} jersey={''} primaryColor={jersey_data.primaryColor} secondaryColor={jersey_data.secondaryColor} textColor={jersey_data.textColor} neckLineColor={jersey_data.neckLineColor} showPlayerPop={true} selectedPlayer={selectedPlayer}/>
+                    // <Jersey className={`ground_jersey ${elem?.position_display?.toLowerCase()}`} name={elem?.name || elem?.name} jersey={elem?.jersey_no} primaryColor={jersey_data.primaryColor} secondaryColor={jersey_data.secondaryColor} textColor={jersey_data.textColor} neckLineColor={jersey_data.neckLineColor}/>
                     )
                 })}
             {/* <GroundSvg width={500} height={500}/> */}
@@ -61,6 +66,17 @@ const TeamBoard = () => {
 
     const TeamPlayerList =()=>{
         const playersData = fetchedData?.data?.players;
+
+        const handleTableMouseOver =(player)=>{
+            // console.log('player over',player)
+            setSelectedPlayer(player)
+        }
+
+        const handleMouseOut =()=>{
+            // console.log('mouse out')
+            setSelectedPlayer({})
+        }
+
         return(
             <table className='responsive-table'>
                 <thead>
@@ -75,7 +91,7 @@ const TeamBoard = () => {
                 <tbody>
                     {playersData && playersData.map((elem,index)=>{
                         return(
-                            <tr>
+                            <tr onMouseOver={()=>handleTableMouseOver(elem)} onMouseOut={()=>handleMouseOut()}>
                                 <td>{index+1}</td>
                                 <td>{elem?.name} ({elem?.jersey_no})</td>
                                 <td>{elem?.designation}</td>
@@ -162,6 +178,7 @@ const TeamBoard = () => {
     },[])
   return (
     <>
+    {/* <PlayerPopCard/> */}
     <TeamProfileBox/>
     <div className='team_box_container'>
         <div className="box box1 player_list_box">

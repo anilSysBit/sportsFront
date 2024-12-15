@@ -1703,7 +1703,7 @@ nav {
 
   }
   .player_list_box{
-    // overflow-y: auto;
+    overflow-y: auto;
     height: 100%;
     // border: 1px solid white;
   }
@@ -1764,6 +1764,29 @@ nav {
       top: 2%;
       right: 30%;
     }
+  }
+
+  .jersey_container{
+    // border: 1px solid white;
+    .player_pop_card{
+      // display: none;
+      position: absolute;
+      bottom: calc(100% + 10px);
+      background-color: black;
+      transition: .5s ease-in-out;
+      z-index: 10;
+      animation: player_pop 0.5s 1 linear;
+      // transition: max-height 0.5s ease-in-out;
+    }
+    @keyframes player_pop {
+        from{
+          height: 0;
+        }
+        to{
+          height: 200px;
+        }
+    }
+
   }
   .goal_post{
     position: absolute;
@@ -1837,6 +1860,39 @@ nav {
   }
 }
 
+.player_pop_card{
+  // border: 1px solid white;
+  height: 200px;
+  width: 180px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px gray;
+  overflow: hidden;
+  .img_container{
+    height: 50%;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+  .detail_box{
+    text-align: center;
+    .name{
+      color: orange;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-top: 5px;
+    }
+    .jersey{
+      font-weight: bold;
+    }
+    .detail{
+      font-size: 1rem;
+    }
+  }
+}
+
 $primary: #6366f1;
 $secondary: #8b5cf6;
 $dark: #1a1a1a;
@@ -1869,6 +1925,7 @@ $breakpoint-lg: 1024px;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   }
+
 
   &__card {
     background: rgba(255, 255, 255, 0.05);
@@ -1905,6 +1962,10 @@ $breakpoint-lg: 1024px;
       color: rgba(255, 255, 255, 0.7);
       margin-bottom: 1rem;
       font-size: 1rem;
+    }
+    &-detail{
+      font-size: 0.9rem;
+      margin-bottom: 5px;
     }
 
     &-buttons {
@@ -2268,6 +2329,40 @@ $breakpoint-lg: 1024px;
     background-color: rgb(187, 28, 28);
   }
   
+}
+
+.event_nav{
+  // border: 1px solid white;
+  display: flex;
+  ul{
+    margin: auto;
+    // border: 1px solid blue;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: rgb(87, 86, 86);
+    // padding: 10px;
+    display: flex;
+    column-gap: 5px;
+    place-content: center;
+    place-items: center;
+    li{
+      height: 40px;
+      display: flex;
+      place-content: center;
+      place-items: center;
+      // border-radius: 10px;
+      min-width: 100px;
+      padding: 10px;
+      // border: 1px solid white;
+      cursor: pointer;
+      &:hover{
+        background-color: black;
+      }
+      &.active{
+        background-color: black;
+      }
+    }
+  }
 }
 
 .match_listing{
