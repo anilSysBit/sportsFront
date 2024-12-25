@@ -300,7 +300,17 @@ nav .part3 {
   border-radius: 8px;
 }
 
-.leaderboard_button {
+.button_groups {
+  display: flex;
+  place-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+}
+.button_groups.center {
+  place-content: center;
+}
+
+.leaderboard_button, .global_btn {
   padding-left: 20px;
   padding-right: 20px;
   min-width: 100px;
@@ -313,15 +323,15 @@ nav .part3 {
   margin-top: 20px;
   cursor: pointer;
 }
-.leaderboard_button.outline {
+.leaderboard_button.outline, .global_btn.outline {
   background-color: transparent;
   border: 1px solid white;
 }
-.leaderboard_button:hover {
+.leaderboard_button:hover, .global_btn:hover {
   background-color: #674dac;
   box-shadow: 0px 0px 10px gray;
 }
-.leaderboard_button i {
+.leaderboard_button i, .global_btn i {
   color: black;
 }
 
@@ -1909,6 +1919,11 @@ nav .part3 {
   width: 20px;
   cursor: pointer;
 }
+.responsive-table .td_detail {
+  display: flex;
+  place-items: center;
+  gap: 10px;
+}
 .responsive-table th, .responsive-table td {
   padding: 20px 15px;
   font-size: 0.9rem;
@@ -1965,7 +1980,10 @@ nav .part3 {
 .event_status.Initiated, .event_status.initiated {
   background-color: rgb(48, 48, 246);
 }
-.event_status.Running, .event_status.running {
+.event_status.completed, .event_status.Completed {
+  background-color: rgb(0, 111, 128);
+}
+.event_status.Running, .event_status.running, .event_status.Ongoing, .event_status.ongoing {
   background-color: green;
 }
 .event_status.Error, .event_status.Expired, .event_status.expired, .event_status.error {
@@ -2294,4 +2312,147 @@ nav .part3 {
 }
 .user_profile .seller_profile_sm .players_table {
   margin-top: 20px;
+}
+
+.event_view_container .event_detail_box {
+  margin-top: 20px;
+}
+.event_view_container .event_detail_box .sm .data_table {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: rgb(52, 52, 52);
+  border-collapse: collapse;
+}
+.event_view_container .event_detail_box .sm .data_table td {
+  padding: 5px 20px;
+}
+.event_view_container .registered_team_list h2 {
+  margin-top: 20px;
+}
+
+.match_page {
+  padding: 0px 40px;
+}
+.match_page .sticky-container {
+  position: sticky;
+  top: 10px;
+}
+.match_page .match_vs_box {
+  height: 120px;
+  width: 100%;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 1px 1px 10px rgb(59, 59, 59);
+  margin-top: 10px;
+  background-image: linear-gradient(45deg, #3A3A4E, #191925);
+  display: flex;
+  place-items: center;
+}
+.match_page .match_vs_box .team {
+  width: 50%;
+  padding: 5px;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  justify-content: space-around;
+}
+.match_page .match_vs_box .team .score {
+  font-size: 2.5rem;
+  color: white;
+  width: 20%;
+}
+.match_page .match_vs_box .team .score.right {
+  text-align: right;
+}
+.match_page .match_vs_box .team .detail {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+.match_page .match_vs_box .team .detail p {
+  font-size: 1rem;
+}
+.match_page .match_vs_box .team .avatar {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  gap: 10px;
+}
+.match_page .match_vs_box .team .avatar img {
+  height: 100%;
+  width: 100%;
+}
+.match_page .match_vs_box .vs_box {
+  height: 120px;
+  width: 120px;
+  position: absolute;
+  border-radius: 10px;
+  right: 50%;
+  transform: translate(50%) rotate(45deg);
+  background-image: linear-gradient(45deg, #3A3A4E, #191925);
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+.match_page .match_vs_box .vs_box .vs_text {
+  transform: rotate(-45deg);
+  font-size: 2rem;
+}
+.match_page .match_details {
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: var(--box-color);
+}
+.match_page .match_details .time_container {
+  border: 1px solid white;
+}
+.match_page .match_details .holder {
+  display: flex;
+  place-items: center;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  margin-bottom: 10px;
+}
+.match_page .match_details .holder p {
+  font-size: 0.9rem;
+}
+.match_page .match_details .holder .icon {
+  color: white;
+}
+.match_page .timer-container {
+  display: flex;
+  place-content: center;
+  place-items: center;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.match_page .timer-container .block {
+  border: 1px solid white;
+}
+.match_page .player_details {
+  margin-top: 40px;
+  display: flex;
+  min-height: 300px;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  justify-content: space-between;
+}
+.match_page .player_details .verification {
+  color: var(--error-red);
+}
+.match_page .player_details .verification.verified {
+  color: green;
+}
+.match_page .player_details .team {
+  width: 48%;
+  border: 1px solid white;
+  padding: 10px;
+  border-radius: 10px;
 }/*# sourceMappingURL=main.css.map */

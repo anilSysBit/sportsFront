@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MatchCard from "./MatchCard";
+import axios from "axios";
 
 const MatchesTable = () => {
 
+  const [fetchedData,setFetchedData] = useState({
+    data:null,
+    total_pages:1,
+})
     const matches = [
         {
             team1: {
@@ -55,12 +60,33 @@ const MatchesTable = () => {
     matchDate: "2024-12-10",
     location: "Stadium XYZ"
   }
+
+
+  const fetchMatchList =async(id)=>{
+    try{
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/matches/`)
+        setFetchedData({
+            data:response.data,
+            total_pages:1,
+        })
+        console.log('Match Response',response)
+    }catch(error){
+        console.log(error)
+        
+    }
+
+}
+
+useEffect(()=>{
+        fetchMatchList()
+    
+},[])
   return (
     <div className="match_listing">
         <h2 className="txt-center">Matches</h2>
-        {matches.map((match,index)=>{
+        {fetchedData.data && fetchedData.data.map((match,index)=>{
             return(
-                <MatchCard match={match} />
+                <MatchCard match={match} key={index}/>
             )
         })}
     </div>

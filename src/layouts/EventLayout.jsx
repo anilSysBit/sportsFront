@@ -1,6 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import EventBanner from '../assets/images/eventbanner1.png'
 import axios from 'axios';
+import { Link, useNavigate } from 'react-router-dom';
 const EventLayout = () => {
     const [scrolled, setScrolled] = useState(false);
 
@@ -8,6 +9,8 @@ const EventLayout = () => {
         data:null,
         total_pages:1,
     })
+
+    const navigate = useNavigate();
 
     const defaultNoBanner = "https://img.freepik.com/premium-photo/euro-2024-spain-england-flags-collage_23-2151698246.jpg?w=1380"
     const events = [
@@ -78,8 +81,8 @@ const EventLayout = () => {
               <p className="events__card-detail">Registration From {formatDatetime(event?.registration_start_date)} - {formatDatetime(event?.registration_end_date)}</p>
               <p className="events__card-detail">Event will Start - {formatDatetime(event?.event_start_date)}</p>
               <div className="events__card-buttons">
-                <button className="details">Event Detail</button>
-                <button className="scores">Scores</button>
+                <button className="details" onClick={()=>navigate(`/event/${event?.id}`)}>Event Detail</button>
+                {/* <button className="scores">Scores</button> */}
               </div>
             </div>
           ))}

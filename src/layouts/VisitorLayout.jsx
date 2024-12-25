@@ -10,6 +10,12 @@ import EventLayout from './EventLayout'
 // import UpcomingMatches from '../pages/match/MatchPage'
 import MatchesTable from '../pages/match/MatchPage'
 import TeamList from '../pages/team/TeamList'
+import EventView from '../pages/event/EventView'
+import Login from '../pages/auth/Login'
+import VerifyEmail from '../pages/auth/VerifyEmail'
+import OtpValidation from '../pages/auth/OtpValidation'
+import ChangePassword from '../pages/auth/ChangePassword'
+import MatchView from '../pages/match/MatchView'
 
 const VisitorLayout = () => {
   const role = 'visitor_layout'
@@ -45,12 +51,20 @@ const VisitorLayout = () => {
         <MainNav/>
           <Routes>
             {findDefaultRoute()}
-              <Route path='/join-now' element={<AnotherLogin/>}/>
+              <Route path='/join-now' element={<AnotherLogin/>}>
+                <Route path='' element={<Login/>}/>
+                <Route path='forgot-password' element={<VerifyEmail/>}/>
+                <Route path='otp-validation' element={<OtpValidation/>}/>
+                <Route path='change-password' element={<ChangePassword/>}/>
+              </Route>
               <Route path='/events' element={<EventLayout/>} />
+              <Route path='/event/:event_id' element={<EventView/>}/>
               <Route path='' element={<Homepage/>} />
               <Route path='teams' element={<TeamList/>}/>
               <Route path='jersey/:team_id' element={<TeamBoard/>}/>
               <Route path='matches' element={<MatchesTable/>}/>
+              <Route path='/match/:match_id/' element={<MatchView/>}/>
+
 
         
           </Routes>
