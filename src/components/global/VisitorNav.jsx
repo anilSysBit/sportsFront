@@ -29,12 +29,14 @@ const MainNav = () => {
 
       <div className={`part2 ${menuOpen ? 'responsive' : ''}`}>
         <ul>
-          <li><Link to="/leaderboard">Leaderboard</Link></li>
+          <li><Link to="/blogs">News</Link></li>
           <li><Link to="/sponsors">Sponsors</Link></li>
           <li><Link to="/events">Events</Link></li>
           <li><Link to="/matches">Matches</Link></li>
           <li><Link to="/teams">Teams</Link></li>
-          <li className="join_now_button"><Link to="/join-now">Join Now</Link></li>
+          {/* <li><Link to="/blogs">Blog</Link></li> */}
+          {/* <li ><Link to="/subscribe">Subscribe</Link></li> */}
+          <li className="join_now_button"><Link to="/register">Register Team</Link></li>
         </ul>
       </div>
 

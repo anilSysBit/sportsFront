@@ -16,6 +16,9 @@ import VerifyEmail from '../pages/auth/VerifyEmail'
 import OtpValidation from '../pages/auth/OtpValidation'
 import ChangePassword from '../pages/auth/ChangePassword'
 import MatchView from '../pages/match/MatchView'
+import Subscribe from '../pages/auth/Subscribe'
+import RegisterTeam from '../pages/auth/RegisterTeam'
+import ThankPage from '../pages/auth/ThankPage'
 
 const VisitorLayout = () => {
   const role = 'visitor_layout'
@@ -50,7 +53,20 @@ const VisitorLayout = () => {
       <BrowserRouter>
         <MainNav/>
           <Routes>
+            {/* <Route path='/subscribe' element={<AnotherLogin/>}/> */}
             {findDefaultRoute()}
+                <Route path="subscribe" element={<AnotherLogin/>}
+                
+                >
+                  <Route path='' element={<Subscribe/>}/>
+                </Route>
+
+                <Route path="register" element={<AnotherLogin/>}
+                
+                >
+                  <Route path='' element={<RegisterTeam/>}/>
+                  <Route path='success' element={<ThankPage/>} />
+                </Route>
               <Route path='/join-now' element={<AnotherLogin/>}>
                 <Route path='' element={<Login/>}/>
                 <Route path='forgot-password' element={<VerifyEmail/>}/>

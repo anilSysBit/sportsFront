@@ -67,6 +67,7 @@ const MatchView = () => {
                 fetchMatchPlayers(2,team2?.id)
             // },5000)
         }
+
     },[fetchedData.data])
 
   return (
