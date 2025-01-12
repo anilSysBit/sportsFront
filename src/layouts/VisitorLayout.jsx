@@ -19,6 +19,7 @@ import MatchView from '../pages/match/MatchView'
 import Subscribe from '../pages/auth/Subscribe'
 import RegisterTeam from '../pages/auth/RegisterTeam'
 import ThankPage from '../pages/auth/ThankPage'
+import Footer from '../components/global/Footer'
 
 const VisitorLayout = () => {
   const role = 'visitor_layout'
@@ -82,8 +83,9 @@ const VisitorLayout = () => {
               <Route path='/match/:match_id/' element={<MatchView/>}/>
 
 
-        
+              
           </Routes>
+          <Footer/>
       </BrowserRouter>
   )
 }
