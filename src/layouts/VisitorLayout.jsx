@@ -85,6 +85,7 @@ const VisitorLayout = () => {
 
 
               <Route path='/news' element={<NewsBox/> }/>
+              <Route path='/sponsers' element={<NewsBox/> }/>
           </Routes>
           <Footer/>
       </BrowserRouter>

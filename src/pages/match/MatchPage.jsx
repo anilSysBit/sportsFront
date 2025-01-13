@@ -8,6 +8,7 @@ const MatchesTable = () => {
   const [fetchedData,setFetchedData] = useState({
     data:null,
     total_pages:1,
+    error:{}
 })
     const matches = [
         {
@@ -76,7 +77,25 @@ const MatchesTable = () => {
         }
         console.log('Match Response',response)
     }catch(error){
-        console.log(error)
+        console.log('error',error)
+        if(error.code === "ERR_NETWORK"){
+          setFetchedData(prev =>({
+            ...prev,
+            error:{
+              title:"Network Error",
+              message:"Try Refresh Page or Contact the Service Provider"
+            }
+          }))
+        }
+        else if(error.response.status === 500){
+          setFetchedData(prev =>({
+            ...prev,
+            error:{
+              title:"Internal Server Error",
+              message:"Try Refresh Page or Contact the Service Provider"
+            }
+          }))
+        }
         
     }
 
@@ -89,11 +108,11 @@ useEffect(()=>{
   return (
     <div className="match_listing page_container">
         <h2 className="txt-center">Matches</h2>
-        {fetchedData.data ? fetchedData.data.map((match,index)=>{
+        {fetchedData.data && fetchedData.data.length ? fetchedData.data.map((match,index)=>{
             return(
                 <MatchCard match={match} key={index}/>
             )
-        }) : <NoData title="No Match Found" message="Try Refresh the Page to Reload the"/>}
+        }) : <NoData title={fetchedData?.error?.title || "No Match Found"} message={fetchedData?.error?.message || "Try Refresh the Page to Reload the"}/>}
       
     </div>
   );
