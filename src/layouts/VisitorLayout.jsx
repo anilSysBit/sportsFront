@@ -20,6 +20,7 @@ import Subscribe from '../pages/auth/Subscribe'
 import RegisterTeam from '../pages/auth/RegisterTeam'
 import ThankPage from '../pages/auth/ThankPage'
 import Footer from '../components/global/Footer'
+import NewsBox from '../pages/news/NewsBox'
 
 const VisitorLayout = () => {
   const role = 'visitor_layout'
@@ -83,7 +84,7 @@ const VisitorLayout = () => {
               <Route path='/match/:match_id/' element={<MatchView/>}/>
 
 
-              
+              <Route path='/news' element={<NewsBox/> }/>
           </Routes>
           <Footer/>
       </BrowserRouter>

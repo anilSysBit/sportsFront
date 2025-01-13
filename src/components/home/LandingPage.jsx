@@ -21,7 +21,7 @@ const LandingPage = () => {
         </p>
 
         <Link to="/leaderboard">
-          <button className="leaderboard_button">Recent Leaderboard</button>
+          <button className="leaderboard_button">View Ongoing Events</button>
         </Link>
       </section>
 

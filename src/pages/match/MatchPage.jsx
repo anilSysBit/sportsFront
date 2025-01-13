@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MatchCard from "./MatchCard";
 import axios from "axios";
+import NoData from "../../components/global/NoData";
 
 const MatchesTable = () => {
 
@@ -61,14 +62,18 @@ const MatchesTable = () => {
     location: "Stadium XYZ"
   }
 
+  console.log('print data',fetchedData)
+
 
   const fetchMatchList =async(id)=>{
     try{
         const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/matches/`)
-        setFetchedData({
+        if(response.data && Array.isArray(response.data)){
+          setFetchedData({
             data:response.data,
             total_pages:1,
         })
+        }
         console.log('Match Response',response)
     }catch(error){
         console.log(error)
@@ -84,11 +89,12 @@ useEffect(()=>{
   return (
     <div className="match_listing page_container">
         <h2 className="txt-center">Matches</h2>
-        {fetchedData.data && fetchedData.data.map((match,index)=>{
+        {fetchedData.data ? fetchedData.data.map((match,index)=>{
             return(
                 <MatchCard match={match} key={index}/>
             )
-        })}
+        }) : <NoData title="No Match Found" message="Try Refresh the Page to Reload the"/>}
+      
     </div>
   );
 };

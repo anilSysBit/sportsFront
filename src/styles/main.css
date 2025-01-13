@@ -429,7 +429,8 @@ nav .part3 {
 .news_box_container {
   margin-top: 60px;
 }
-.news_box_container .news_list {
+
+.news_list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 20px;
@@ -2641,4 +2642,31 @@ nav .part3 {
   margin-top: 0;
   background-color: #625b71;
   width: 20%;
+}
+
+.no_data_container {
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  place-items: center;
+  background-color: var(--footer_color);
+  border-radius: 10px;
+  padding: 10px;
+  min-height: 50vh;
+}
+.no_data_container h2 {
+  font-size: 30px;
+}
+.no_data_container p {
+  font-size: 0.9rem;
+}
+.no_data_container .img_box {
+  height: 200px;
+}
+.no_data_container .img_box img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }/*# sourceMappingURL=main.css.map */

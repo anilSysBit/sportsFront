@@ -29,7 +29,7 @@ const MainNav = () => {
 
       <div className={`part2 ${menuOpen ? 'responsive' : ''}`}>
         <ul>
-          <li><Link to="/blogs">News</Link></li>
+          <li><Link to="/news">News</Link></li>
           <li><Link to="/sponsors">Sponsors</Link></li>
           <li><Link to="/events">Events</Link></li>
           <li><Link to="/matches">Matches</Link></li>
