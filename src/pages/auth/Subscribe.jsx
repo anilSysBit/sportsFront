@@ -14,7 +14,7 @@ const Subscribe = () => {
               />
             </div>
 
-            <p className='sm_text'>Get Notifications and Mails about match updates and Scores</p>
+            <p className='sm_text'>Stay updated with upcoming matches, events, and real-time results—never miss a moment!</p>
 
             <button type="submit" className="login-btn">
               Subscribe

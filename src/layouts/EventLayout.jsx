@@ -67,7 +67,7 @@ const EventLayout = () => {
         <li className=''>Over</li>
       </ul>
     </div>
-    <main className="events">
+    <main className="events page_container">
         <h1 className="events__title">Open For Events</h1>
         <div className="events__grid">
           {fetchedData.data && fetchedData.data.map((event, index) => (

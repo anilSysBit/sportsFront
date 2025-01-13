@@ -82,7 +82,7 @@ useEffect(()=>{
     
 },[])
   return (
-    <div className="match_listing">
+    <div className="match_listing page_container">
         <h2 className="txt-center">Matches</h2>
         {fetchedData.data && fetchedData.data.map((match,index)=>{
             return(
