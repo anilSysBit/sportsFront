@@ -2,7 +2,7 @@ import React from "react";
 // import "./Login.scss";
 // import playerImage from "./player.png"; // Replace with the actual path of the image
 
-import LoginBackground from '../../assets/images/loginorganizer.png'
+import LoginBackground from '/images/loginorganizer.png'
 import { Outlet } from "react-router-dom";
 
 const AnotherLogin = () => {

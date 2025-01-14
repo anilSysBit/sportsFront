@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import LoadingPageLayout from '../../layouts/LoadingPageLayout';
 
 
 const teams = [
@@ -53,27 +54,14 @@ const teams = [
       total_pages:1,
     })
 
-    const fetchTeamData=async(id)=>{
-      try{
-          const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/teams/`)
-          setFetchedData({
-              data:response.data,
-              total_pages:1,
-          })
-          console.log('team response',response)
-      }catch(error){
-          console.log(error)
-          
-      }
 
+
+  const apiData = {
+    url : `${import.meta.env.VITE_API_URL}/api/teams/`,
   }
-
-  useEffect(()=>{
-    fetchTeamData()
-  },[])
-
     return (
-      <div className="team_page_container">
+      <LoadingPageLayout apiUrl={apiData.url} isResponseArray setFetchedData={setFetchedData}>
+        <div className="team_page_container">
         <h2 className='txt-center mt-10'>Teams</h2>
         <div className="team-list">
         {fetchedData.data && fetchedData.data.map((team, index) => (
@@ -91,6 +79,7 @@ const teams = [
         ))}
       </div>
       </div>
+      </LoadingPageLayout>
     );
   };
   

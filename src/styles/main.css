@@ -18,6 +18,10 @@ h1 {
   color: rgb(199, 199, 199);
 }
 
+.loading_page {
+  min-height: 80vh;
+}
+
 .red {
   color: rgb(250, 53, 53);
 }
@@ -28,10 +32,6 @@ h1 {
 
 .underline {
   text-decoration: underline;
-}
-
-.page_container {
-  min-height: 70vh;
 }
 
 .mt-5 {

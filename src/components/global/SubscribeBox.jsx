@@ -1,5 +1,5 @@
 import React from 'react'
-import SubImage from '../../assets/images/youngman.png'
+import SubImage from '/images/youngman.png'
 const SubscribeBox = () => {
   return (
     <div className="subscribe_box attach_with_footer">

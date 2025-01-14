@@ -15,7 +15,7 @@ const NewsBox = () => {
     }))
   },[])
   return (
-    <div className="news_page_container page_container">
+    <div className="news_page_container">
       <h2>News</h2>
       <div className="news_list">
             {fetchedData.data && fetchedData.data.map((elem,index)=>{

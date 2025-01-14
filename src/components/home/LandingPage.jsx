@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import LandImage from '../../assets/images/landimage.png'
+import LandImage from '/images/landimage.png'
 
 
 const LandingPage = () => {

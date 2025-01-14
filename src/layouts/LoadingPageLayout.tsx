@@ -85,12 +85,19 @@ const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,a
     
   }
 
+
+  useEffect(()=>{
+    fetchFunction();
+  },[])
+
+  
+
   return(
-    <>
+    <main className='loading_page'>
       {loading && <div>Loading</div>}
-      {/* {error.header && <NoData header={}/>} */}
       {children}
-    </>
+      {error.header && <NoData title={error.header} message={error.message}/>}
+    </main>
   )
 }
 export default LoadingPageLayout

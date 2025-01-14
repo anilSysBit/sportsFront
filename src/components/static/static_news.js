@@ -25,3 +25,22 @@ export const staticNews = [
     },
     
   ];
+
+export const staticEvents = [
+    {
+        title: 'Kathmandu Cricket Cup',
+        date: '1 Sep - 15 Sep',
+        imageUrl: ''
+      },
+    {
+      title: 'Chitwan Football League',
+      date: 'Upto 25 Aug',
+      imageUrl: 'https://img.freepik.com/premium-photo/euro-2024-spain-england-flags-collage_23-2151698246.jpg?w=1380'
+    },
+    {
+      title: 'Kathmandu Cricket Cup',
+      date: '1 Sep - 15 Sep',
+      imageUrl: 'https://static.vecteezy.com/system/resources/previews/005/753/717/non_2x/football-tournament-background-abstract-sport-symbol-template-design-banner-for-sport-event-illustrations-vector.jpg'
+    },
+
+  ];

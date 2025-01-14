@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react'
-import EventBanner from '../assets/images/eventbanner1.png'
+import EventBanner from '/images/eventbanner1.png'
 import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
+import LoadingPageLayout from './LoadingPageLayout';
 const EventLayout = () => {
     const [scrolled, setScrolled] = useState(false);
 
@@ -13,44 +14,27 @@ const EventLayout = () => {
     const navigate = useNavigate();
 
     const defaultNoBanner = "https://img.freepik.com/premium-photo/euro-2024-spain-england-flags-collage_23-2151698246.jpg?w=1380"
-    const events = [
-        {
-            title: 'Kathmandu Cricket Cup',
-            date: '1 Sep - 15 Sep',
-            imageUrl: EventBanner
-          },
-        {
-          title: 'Chitwan Football League',
-          date: 'Upto 25 Aug',
-          imageUrl: 'https://img.freepik.com/premium-photo/euro-2024-spain-england-flags-collage_23-2151698246.jpg?w=1380'
-        },
-        {
-          title: 'Kathmandu Cricket Cup',
-          date: '1 Sep - 15 Sep',
-          imageUrl: 'https://static.vecteezy.com/system/resources/previews/005/753/717/non_2x/football-tournament-background-abstract-sport-symbol-template-design-banner-for-sport-event-illustrations-vector.jpg'
-        },
 
-      ];
 
-      const fetchEventData =async(id)=>{
-        try{
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events/`)
-            setFetchedData({
-                data:response.data,
-                total_pages:1,
-            })
-            console.log('event response',response)
-        }catch(error){
-            console.log(error)
+    //   const fetchEventData =async(id)=>{
+    //     try{
+    //         const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/events/`)
+    //         setFetchedData({
+    //             data:response.data,
+    //             total_pages:1,
+    //         })
+    //         console.log('event response',response)
+    //     }catch(error){
+    //         console.log(error)
             
-        }
+    //     }
 
-    }
+    // }
 
-    useEffect(()=>{
-            fetchEventData()
+    // useEffect(()=>{
+    //         fetchEventData()
         
-    },[])
+    // },[])
 
     const formatDatetime =(date)=>{
       const newDate = new Date()
@@ -58,8 +42,15 @@ const EventLayout = () => {
       // return newDate
       return newDate.toDateString()
     }
+
+    const apiData = {
+      url:`${import.meta.env.VITE_API_URL}/api/events/`,
+      search:'',
+      headers:{}
+    }
   return (
     <>
+    <LoadingPageLayout apiUrl={apiData?.url} isResponseArray={true} setFetchedData={setFetchedData} fetchedData={fetchedData}>
     <div className="event_nav">
       <ul>
         <li className=''>Ongoing</li>
@@ -67,7 +58,7 @@ const EventLayout = () => {
         <li className=''>Over</li>
       </ul>
     </div>
-    <main className="events page_container">
+    <main className="events gb_container">
         <h1 className="events__title">Open For Events</h1>
         <div className="events__grid">
           {fetchedData.data && fetchedData.data.map((event, index) => (
@@ -88,6 +79,7 @@ const EventLayout = () => {
           ))}
         </div>
       </main>
+    </LoadingPageLayout>
       </>
   )
 }
