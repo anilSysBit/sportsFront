@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { GButton } from '../../components/elements/Button';
 
 const RegisterTeam = () => {
   const [initialValues,setInitialValues] = useState({
@@ -10,6 +11,7 @@ const RegisterTeam = () => {
     address:"",
     short_name:''
   })
+  const [buttonLoader,setButtonLoader] = useState(false);
 
   const [errors,setErrors] = useState({});
 
@@ -28,22 +30,31 @@ const RegisterTeam = () => {
   const handleSubmit =async(event)=>{
     
     event.preventDefault();
+    setButtonLoader(true);
     
     try{
       console.log('body',initialValues)
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/team-requests/`,initialValues)
-
+      setButtonLoader(false)
       console.log(response)
-
+      setButtonLoader(false);
       navigate("/register/success");
     }catch(error){
-
+      setButtonLoader(false)
       console.log(error)
-      if (error.response.status == 400){
+      if (error.response){
         setErrors(error.response.data)
+      }else{
+        console.log('going here')
+        setErrors(prev =>({
+          ...prev,
+          message:error?.message
+        }))
       }
     }
   }
+
+  console.log(errors)
   return (
     <div className="login-card">
           <h2>Register for Team</h2>
@@ -78,7 +89,7 @@ const RegisterTeam = () => {
             <div className="input-group">
             <p className='label'>Email</p>
               <input
-                type="text"
+                type="email"
                 // placeholder="Email"
                 name='email'
                 className="login-input"
@@ -121,9 +132,9 @@ const RegisterTeam = () => {
               <p>{}</p>
             </div>
 
-            <button type="submit" className="login-btn">
-              Register
-            </button>
+            <p className='sm_text red'>{errors?.message}</p>
+
+            <GButton type='submit' className='login-btn' loading={buttonLoader}>Register</GButton>
 
             <a href="http://127.0.0.1:8000/login"   className="forgot-password">
               Already Registerd! Login to Panel
