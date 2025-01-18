@@ -2,7 +2,8 @@ import React from 'react'
 import SubImage from '/images/youngman.png'
 const SubscribeBox = () => {
   return (
-    <div className="subscribe_box attach_with_footer">
+    <div className="subscribe_container">
+      <div className="subscribe_box attach_with_footer">
         <div className="img_box">
             <img src={SubImage} alt="subscribe image" />
         </div>
@@ -16,6 +17,7 @@ const SubscribeBox = () => {
                 <p className='sm_text mt-10'>Stay updated with upcoming matches, events, and real-time results—never miss a moment!</p>
             </form>
         </div>
+    </div>
     </div>
   )
 }

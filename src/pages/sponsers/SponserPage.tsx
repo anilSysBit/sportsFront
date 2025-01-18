@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import LoadingPageLayout from '../../layouts/LoadingPageLayout'
 import NewsCard from '../news/NewsCard';
+import PhotoGallery from '../../components/elements/PhotoGallery';
+import SponserBanner from '../../components/global/SponserBanner';
 
 
 interface fetchType{
@@ -16,13 +18,16 @@ const SponserPage:React.FC = () => {
   return (
     <LoadingPageLayout apiUrl={url} isResponseArray setFetchedData={setFetchedData}>
         <h2>Sponsers</h2>
+        <SponserBanner/>
         <div className="news_list sponsers_page">
             {fetchedData.data && fetchedData.data.map((elem,index)=>{
                 return(
-                    <NewsCard 
+                    <NewsCard
                         header={elem?.name} 
                         image={elem?.logo} 
-                        description={elem?.small_description}/>
+                        description={elem?.small_description}
+                        
+                        />
                 )
             })}
         </div>

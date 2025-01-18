@@ -450,6 +450,7 @@ nav .part3 {
   height: 50%;
 }
 .news_card .img_box img {
+  background-color: rgb(187, 187, 187);
   height: 100%;
   width: 100%;
   -o-object-fit: cover;
@@ -2583,6 +2584,12 @@ nav .part3 {
   font-size: 1rem;
 }
 
+.subscribe_container {
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+
 .subscribe_box {
   min-height: 300px;
   border-radius: 10px;
@@ -2591,9 +2598,6 @@ nav .part3 {
   display: flex;
   justify-content: space-around;
   overflow: hidden;
-}
-.subscribe_box.attach_with_footer {
-  transform: translate(20%, 40%);
 }
 .subscribe_box .img_box img {
   height: 100%;
@@ -2669,4 +2673,86 @@ nav .part3 {
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
+}
+
+.photo-gallery {
+  margin-top: 10px;
+  display: flex;
+  gap: 15px;
+}
+.photo-gallery .column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  flex: 25%;
+}
+.photo-gallery .column .photo {
+  position: relative;
+  cursor: pointer;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+.photo-gallery .column .photo img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  vertical-align: middle;
+}
+.photo-gallery .column .photo:hover .img_cover {
+  display: block;
+}
+.photo-gallery .column .photo .img_cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: 0.3s;
+  display: none;
+}
+
+.sponser_banner {
+  border-radius: 10px;
+  min-height: 200px;
+  background-color: var(--footer_color);
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.sponser_banner .box {
+  padding: 10px;
+}
+.sponser_banner .box .header {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+}
+.sponser_banner .box .img_box {
+  display: flex;
+  place-content: center;
+  place-items: center;
+}
+.sponser_banner .box .img_box.flex {
+  display: flex;
+  gap: 20px;
+}
+.sponser_banner .box .img_box.flex img {
+  height: 70px;
+}
+.sponser_banner .box .img_box img {
+  height: 100px;
+  width: 100%;
+  max-width: 200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 10px;
 }/*# sourceMappingURL=main.css.map */

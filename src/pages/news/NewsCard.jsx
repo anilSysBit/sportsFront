@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NewsCard = ({header,image,description}) => {
+const NewsCard = ({header,image,description,date=null}) => {
   return (
     <div className="news_card">
                         <div className="img_box">
@@ -10,6 +10,7 @@ const NewsCard = ({header,image,description}) => {
                         <p className="header">{header}</p>
                         <p className='description'>{description}</p>
                         <button className="global_btn">View More</button>
+                        <p className='sm_text mt-10'>Created on {date}</p>
                         </div>
                     </div>
   )
