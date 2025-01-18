@@ -1,14 +1,14 @@
 import React from 'react'
 
-const NewsCard = ({elem}) => {
+const NewsCard = ({header,image,description}) => {
   return (
     <div className="news_card">
                         <div className="img_box">
-                            <img src={elem?.image} alt="" />
+                            <img src={image} alt="" />
                         </div>
                         <div className="detail_box">
-                        <p className="header">{elem?.header}</p>
-                        <p className='description'>{elem?.description}</p>
+                        <p className="header">{header}</p>
+                        <p className='description'>{description}</p>
                         <button className="global_btn">View More</button>
                         </div>
                     </div>

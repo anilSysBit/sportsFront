@@ -3,15 +3,15 @@ import React, { useEffect, useState } from 'react'
 import NoData from '../components/global/NoData';
 
 interface LoadingPageLayoutProps{
-  children:React.ReactNode;
-  auth:boolean;
+  children?:React.ReactNode;
+  auth?:boolean;
   title?:string;
   isLoading?:boolean;
-  fetchedData:any;
+  fetchedData?:any;
   setFetchedData: React.Dispatch<React.SetStateAction<any>>;
   apiUrl:string;
-  isResponseArray:boolean;
-  isResponseObject:boolean;
+  isResponseArray?:boolean;
+  isResponseObject?:boolean;
 }
 interface Error {
   header: string;

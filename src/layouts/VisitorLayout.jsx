@@ -21,6 +21,7 @@ import RegisterTeam from '../pages/auth/RegisterTeam'
 import ThankPage from '../pages/auth/ThankPage'
 import Footer from '../components/global/Footer'
 import NewsBox from '../pages/news/NewsBox'
+import SponserPage from '../pages/sponsers/SponserPage'
 
 const VisitorLayout = () => {
   const role = 'visitor_layout'
@@ -85,7 +86,7 @@ const VisitorLayout = () => {
 
 
               <Route path='/news' element={<NewsBox/> }/>
-              <Route path='/sponsers' element={<NewsBox/> }/>
+              <Route path='/sponsers' element={<SponserPage/> }/>
           </Routes>
           <Footer/>
       </BrowserRouter>
