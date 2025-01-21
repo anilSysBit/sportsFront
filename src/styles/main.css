@@ -112,7 +112,7 @@ a {
   width: 80px;
   height: 80px;
   position: absolute;
-  background-image: url("/images/soccor.png");
+  background-image: url("/images/football.svg");
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1195,7 +1195,6 @@ nav .part3 {
   height: 300px;
 }
 .user_profile .seller_profile_sm .banner_container .profile_picture {
-  height: 40%;
   position: absolute;
   left: 50px;
   bottom: 80px;
@@ -1219,6 +1218,10 @@ nav .part3 {
   border-radius: 5px;
   height: 100%;
   width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 .user_profile .seller_profile_sm .banner_container .profile_picture .details {
   margin-top: 10px;
@@ -2405,6 +2408,7 @@ nav .part3 {
 }
 .event_view_container .event_detail_box .sm .data_table td {
   padding: 5px 20px;
+  font-size: 0.9rem;
 }
 .event_view_container .registered_team_list h2 {
   margin-top: 20px;
@@ -2771,5 +2775,5 @@ nav .part3 {
   display: flex;
   place-content: center;
   place-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(48, 48, 48, 0.7);
 }/*# sourceMappingURL=main.css.map */

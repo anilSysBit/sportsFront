@@ -66,7 +66,7 @@ const EventLayout = () => {
         <h1 className="events__title">Open For Events</h1>
         <div className="events__grid">
           {fetchedData.data && fetchedData.data.map((event, index) => (
-            <Link to={`/event/${event.id}/`} key={index} className="events__card">
+            <Link to={`/event/${event.slug_field || event.id}/`} key={index} className="events__card">
               <div className="events__card-image">
                 <img src={event?.banner || defaultNoBanner} alt={event?.title} />
               </div>

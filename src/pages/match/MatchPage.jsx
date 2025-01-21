@@ -3,6 +3,7 @@ import MatchCard from "./MatchCard";
 import axios from "axios";
 import NoData from "../../components/global/NoData";
 import LoadingPageLayout from "../../layouts/LoadingPageLayout";
+import { useSearchParams } from "react-router-dom";
 
 const MatchesTable = () => {
 
@@ -60,7 +61,7 @@ const MatchesTable = () => {
     <LoadingPageLayout apiUrl={apiData?.url} isResponseArray setFetchedData={setFetchedData}>
       <div className="match_listing">
         <h2 className="txt-center">Matches</h2>
-        {fetchedData.data && fetchedData.data.length && fetchedData.data.map((match,index)=>{
+        {(fetchedData.data && fetchedData.data.length > 0)  && fetchedData.data.map((match,index)=>{
             return(
                 <MatchCard match={match} key={index}/>
             )

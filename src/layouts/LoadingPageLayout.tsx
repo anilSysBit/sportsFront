@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import NoData from '../components/global/NoData';
 import Loader from '../components/global/Loader';
+import { useSearchParams } from 'react-router-dom';
 
 interface LoadingPageLayoutProps{
   children?:React.ReactNode;
@@ -13,8 +14,9 @@ interface LoadingPageLayoutProps{
   apiUrl:string;
   isResponseArray?:boolean;
   isResponseObject?:boolean;
-  query?:any;
+  query?:object;
   loaderStatus?:boolean;
+  showEmptyArrayStatus?:boolean;
 }
 
 interface Error {
@@ -22,12 +24,14 @@ interface Error {
   message?: string;
 }
 
-const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,apiUrl,fetchedData,setFetchedData,auth=false,isResponseArray=false,isResponseObject=false,query,loaderStatus=true}) => {
+const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,apiUrl,fetchedData,setFetchedData,auth=false,isResponseArray=false,isResponseObject=false,query,loaderStatus=true,showEmptyArrayStatus=true}) => {
   const [loading,setLoading] = useState<boolean>(false);
   const [error,setError] = useState<Error>({
     header:'',
     message:''
   });
+
+  
 
   function isObject(value:any) {
     return typeof value === 'object' && value !== null && !Array.isArray(value);
@@ -35,13 +39,18 @@ const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,a
 
   const fetchFunction =async()=>{
     setLoading(true);
+    const queryParams = new URLSearchParams(window.location.search)
+    const queryObject = Object.fromEntries(queryParams.entries());
     const headers = {};
     if(auth){
       const access_token = localStorage.getItem('access_token')
       headers['Authorization'] = `Bearer ${access_token}`
     }
     try{
-      const response = await axios.get(apiUrl,headers);
+      const response = await axios.get(apiUrl,{
+        params:queryObject,
+        headers:headers
+      });
       console.log('Response',response)
 
       if(response.data){
@@ -51,6 +60,13 @@ const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,a
               ...prev,
               data:response.data
             }))
+
+            if (showEmptyArrayStatus && response.data.length < 1){
+              setError({
+                header:"No Data Found",
+                message:'Data is empty'
+              })
+            }
           }
         }else if(isResponseObject){
           if(isObject(response.data)){
@@ -92,7 +108,7 @@ const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,a
 
   useEffect(()=>{
     fetchFunction();
-  },[query])
+  },[])
 
   
 

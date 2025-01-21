@@ -106,7 +106,7 @@ const EventView = () => {
 
               <div className="button_groups">
                 {/* {event?.status == 'Initiated' && <button className='global_btn'>Apply as Team</button>} */}
-                <button className="global_btn outline" onClick={()=>navigate(`/matches?event=${event?.id}/`)}>View Matches</button>
+                <button className="global_btn outline" onClick={()=>navigate(`/matches?event=${event?.slug_field || event?.id}`)}>View Matches</button>
               </div>
               </div>
 
