@@ -98,19 +98,21 @@ a {
   position: relative;
 }
 .homepage .wrapper {
+  right: 25%;
+  bottom: 5%;
+}
+
+.wrapper {
   width: 100px;
   height: 300px;
   position: absolute;
-  right: 25%;
-  bottom: 5%;
-  z-index: 1;
   border: 2px solid blackr;
 }
-.homepage .circle {
+.wrapper .circle {
   width: 80px;
   height: 80px;
   position: absolute;
-  background-image: url("https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/14789/soccer-ball-sports-clipart-md.png");
+  background-image: url("/images/soccor.png");
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -132,20 +134,20 @@ a {
     top: 0%;
   }
 }
-.homepage .circle:nth-child(2) {
+.wrapper .circle:nth-child(2) {
   left: 45%;
   animation-delay: 0.2s;
 }
-.homepage .circle:nth-child(3) {
+.wrapper .circle:nth-child(3) {
   left: auto;
   right: 15%;
   animation-delay: 0.3s;
 }
-.homepage .shadow {
+.wrapper .shadow {
   width: 50px;
   height: 4px;
   border-radius: 50%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: var(--footer_color);
   position: absolute;
   top: 180px;
   transform-origin: 50%;
@@ -167,11 +169,11 @@ a {
     opacity: 0.4;
   }
 }
-.homepage .shadow:nth-child(4) {
+.wrapper .shadow:nth-child(4) {
   left: 45%;
   animation-delay: 0.2s;
 }
-.homepage .shadow:nth-child(5) {
+.wrapper .shadow:nth-child(5) {
   left: auto;
   right: 15%;
   animation-delay: 0.3s;
@@ -1728,20 +1730,20 @@ nav .part3 {
 }
 .events__card {
   background: rgba(255, 255, 255, 0.05);
-  border-radius: 1rem;
-  padding: 1.5rem;
+  border-radius: 0.5rem;
   transition: transform 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
 }
 .events__card:hover {
   transform: translateY(-5px);
 }
+.events__card .detail_box {
+  padding: 10px;
+}
 .events__card-image {
   width: 100%;
-  height: 150px;
-  border-radius: 0.5rem;
+  height: 200px;
   overflow: hidden;
-  margin-bottom: 1rem;
 }
 .events__card-image img {
   width: 100%;
@@ -1750,9 +1752,8 @@ nav .part3 {
      object-fit: cover;
 }
 .events__card-title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
 }
 .events__card-date {
   color: rgba(255, 255, 255, 0.7);
@@ -1766,29 +1767,6 @@ nav .part3 {
 .events__card-buttons {
   display: flex;
   gap: 1rem;
-}
-.events__card-buttons button {
-  flex: 1;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 20px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.events__card-buttons button.details {
-  background: #65558F;
-  color: #ffffff;
-}
-.events__card-buttons button.details:hover {
-  background: #3438ed;
-}
-.events__card-buttons button.scores {
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-}
-.events__card-buttons button.scores:hover {
-  background: rgba(255, 255, 255, 0.2);
 }
 
 .login-page {
@@ -2109,23 +2087,42 @@ nav .part3 {
 }
 
 .team-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  display: flex;
+  place-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
   padding: 20px;
 }
 
 .team-card {
-  background-color: #1f1f1f;
+  background-color: var(--footer_color);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  width: 300px;
+  position: relative;
+  transition: 0.5s ease-in-out;
 }
 .team-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 15px rgb(163, 163, 163);
+}
+.team-card:hover .team-details {
+  display: block;
+}
+.team-card .short_name {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  z-index: 10;
+  color: white; /* Default text color */
+  text-shadow: 0px 0px 5px black; /* Adds a glow effect for contrast */
+  font-weight: bold; /* Makes the text more prominent */
+  font-size: 1.2rem; /* Adjust size for better readability */
+  padding: 10px;
+  text-align: center;
 }
 .team-card .team-logo {
   width: 100%;
@@ -2135,14 +2132,22 @@ nav .part3 {
 .team-card .team-logo img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  border-bottom: 5px solid var(--global_blue);
+  -o-object-fit: contain;
+     object-fit: contain;
+  -o-object-position: center;
+     object-position: center;
 }
 .team-card .team-details {
   padding: 15px;
   text-align: center;
   color: #fff;
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  background-color: rgba(31, 31, 31, 0.8);
+  transition: 0.5s ease-in-out;
+  height: 100%;
 }
 .team-card .team-details .team-name {
   font-size: 1rem;
@@ -2153,7 +2158,7 @@ nav .part3 {
 .team-card .team-details .team-info {
   font-size: 1rem;
   margin-bottom: 8px;
-  color: #bbb;
+  color: white;
 }
 .team-card .team-details .show-more {
   margin-top: 15px;
@@ -2755,4 +2760,16 @@ nav .part3 {
   -o-object-position: center;
      object-position: center;
   border-radius: 10px;
+}
+
+.loading_component {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
 }/*# sourceMappingURL=main.css.map */

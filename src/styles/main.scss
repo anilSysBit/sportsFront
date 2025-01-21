@@ -99,26 +99,30 @@ a {
 .homepage{
   position: relative;
   // border: 2px solid white;
-  .wrapper {
-    width: 100px;
-    height: 300px;
-    position: absolute;
+  .wrapper{
     right: 25%;
     bottom: 5%;
-    // border: 2px solid white;
-    // position: relative;
-    z-index: 1;
-    border: 2px solid blackr;
-    // animation: path 10s alternate infinite ease;
-
-
   }
+
   
+}
+.wrapper {
+  width: 100px;
+  height: 300px;
+  position: absolute;
+  // right: 25%;
+  // bottom: 5%;
+  // border: 2px solid white;
+  // position: relative;
+  // z-index: 1;
+  border: 2px solid blackr;
+  // animation: path 10s alternate infinite ease;
+
   .circle {
     width: 80px;
     height: 80px;
     position: absolute;
-    background-image: url("https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/14789/soccer-ball-sports-clipart-md.png");
+    background-image: url("/images/soccor.png");
     background-position: center center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -164,7 +168,8 @@ a {
     width: 50px;
     height: 4px;
     border-radius: 50%;
-    background-color: rgba(0,0,0,0.9);
+    // background-color: rgba(0,0,0,0.9);
+    background-color: var(--footer_color);
     position: absolute;
     top: 180px;
     transform-origin: 50%;
@@ -200,8 +205,9 @@ a {
     right: 15%;
     animation-delay: .3s;
   }
-  
 }
+
+
 
 nav {
   margin-bottom: 20px;
@@ -2011,21 +2017,24 @@ $breakpoint-lg: 1024px;
 
   &__card {
     background: rgba(255, 255, 255, 0.05);
-    border-radius: 1rem;
-    padding: 1.5rem;
+    border-radius: 0.5rem;
+    // padding: 1.5rem;
     transition: transform $transition-speed;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    
+    // border: 1px solid rgba(255, 255, 255, 0.1);
+    overflow: hidden;
     &:hover {
       transform: translateY(-5px);
+    }
+    .detail_box{
+      padding: 10px;
     }
 
     &-image {
       width: 100%;
-      height: 150px;
-      border-radius: 0.5rem;
+      height: 200px;
+      // border-radius: 0.5rem;
       overflow: hidden;
-      margin-bottom: 1rem;
+      // margin-bottom: 1rem;
 
       img {
         width: 100%;
@@ -2035,9 +2044,9 @@ $breakpoint-lg: 1024px;
     }
 
     &-title {
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      // margin-bottom: 0.5rem;
     }
 
     &-date {
@@ -2054,33 +2063,6 @@ $breakpoint-lg: 1024px;
       display: flex;
       gap: 1rem;
 
-      button {
-        flex: 1;
-        padding: 0.5rem;
-        border: none;
-        border-radius: 20px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all $transition-speed;
-
-        &.details {
-          background: #65558F;
-          color: $light;
-
-          &:hover {
-            background: darken($primary, 10%);
-          }
-        }
-
-        &.scores {
-          background: rgba(255, 255, 255, 0.1);
-          color: $light;
-
-          &:hover {
-            background: rgba(255, 255, 255, 0.2);
-          }
-        }
-      }
     }
   }
 }
@@ -2486,23 +2468,45 @@ $accent-color: #ff9800;
 $hover-shadow: rgba(0, 0, 0, 0.4);
 
 .team-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 20px;
+  display: flex;
+  // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  // justify-content: space-around;
+  place-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
   padding: 20px;
+  // border: 1px solid white;
 }
 
 .team-card {
-  background-color: $dark-bg;
+  background-color: var(--footer_color);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-
+  width: 300px;
+  position: relative;
+  transition: .5s ease-in-out;
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 15px $hover-shadow;
+    box-shadow: 0 10px 15px rgb(163, 163, 163);
+    .team-details{
+      display: block;
+    }
+  }
+  .short_name{
+    // border: 1px solid white;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    z-index: 10;
+    color: white; /* Default text color */
+    text-shadow: 0px 0px 5px black; /* Adds a glow effect for contrast */
+    font-weight: bold; /* Makes the text more prominent */
+    font-size: 1.2rem; /* Adjust size for better readability */
+    padding: 10px;
+    text-align: center;
   }
 
   .team-logo {
@@ -2512,8 +2516,9 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
     img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      border-bottom: 5px solid var(--global_blue);
+      object-fit: contain;
+      object-position: center;
+      // border-bottom: 5px solid var(--global_blue);
     }
   }
 
@@ -2521,6 +2526,13 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
     padding: 15px;
     text-align: center;
     color: #fff;
+    display: none;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    background-color: rgba($color: $dark-bg, $alpha: 0.8);
+    transition: .5s ease-in-out;
+    height: 100%;
 
     .team-name {
       font-size: 1rem;
@@ -2532,7 +2544,8 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
     .team-info {
       font-size: 1rem;
       margin-bottom: 8px;
-      color: #bbb;
+      // color: #bbb;
+      color: white;
     }
 
     .show-more {
@@ -3283,4 +3296,19 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
       }
     }
   }
+}
+
+
+.loading_component{
+  // border: 1px solid white;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+
 }

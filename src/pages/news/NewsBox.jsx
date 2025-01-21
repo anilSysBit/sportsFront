@@ -13,7 +13,7 @@ const NewsBox = ({onFront=false}) => {
 const url = onFront ? `${import.meta.env.VITE_API_URL}/api/recent-news?count=4` : `${import.meta.env.VITE_API_URL}/api/recent-news/`
 
   return (
-   <LoadingPageLayout apiUrl={url}  setFetchedData={setFetchedData} isResponseArray>
+   <LoadingPageLayout apiUrl={url} loaderStatus={!onFront}  setFetchedData={setFetchedData} isResponseArray>
  <div className="news_box_container">
       <h2>{onFront ? 'Recent News':'News'}</h2>
       <div className="news_list">

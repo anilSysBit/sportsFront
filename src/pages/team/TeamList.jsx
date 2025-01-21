@@ -65,17 +65,19 @@ const teams = [
         <h2 className='txt-center mt-10'>Teams</h2>
         <div className="team-list">
         {fetchedData.data && fetchedData.data.map((team, index) => (
-          <div key={index} className="team-card">
+          <Link to={`/jersey/${team.id}`} key={index} className="team-card">
             <div className="team-logo">
               <img src={team?.logo || defaultNOImage} alt={team?.name} />
             </div>
+            <p className='short_name'>{team.short_name}</p>
+
             <div className="team-details">
-              <h3 className="team-name">{team?.name}</h3>
-              <p className="team-info">Total Players: {team?.total_players}</p>
-              {/* <p className="team-info">Sports Genre: {team.sportsGenre}</p> */}
-              <Link to={`/jersey/${team?.id}`}><button className="leaderboard_button">Show More</button></Link>
+              <p className='team-name'>{team?.name}</p>
+              <p className='sm_text mt-5'>Location - {team?.address}</p>
+              <p className='sm_text mt-5'>Total Players {team?.total_players}</p>
+              <p className='sm_text mt-5'>Click to View More</p>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
       </div>

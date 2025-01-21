@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import NoData from '../components/global/NoData';
+import Loader from '../components/global/Loader';
 
 interface LoadingPageLayoutProps{
   children?:React.ReactNode;
@@ -12,13 +13,16 @@ interface LoadingPageLayoutProps{
   apiUrl:string;
   isResponseArray?:boolean;
   isResponseObject?:boolean;
+  query?:any;
+  loaderStatus?:boolean;
 }
+
 interface Error {
   header: string;
   message?: string;
 }
 
-const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,apiUrl,fetchedData,setFetchedData,auth=false,isResponseArray=false,isResponseObject=false}) => {
+const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,apiUrl,fetchedData,setFetchedData,auth=false,isResponseArray=false,isResponseObject=false,query,loaderStatus=true}) => {
   const [loading,setLoading] = useState<boolean>(false);
   const [error,setError] = useState<Error>({
     header:'',
@@ -88,13 +92,13 @@ const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,a
 
   useEffect(()=>{
     fetchFunction();
-  },[])
+  },[query])
 
   
 
   return(
     <main className='loading_page'>
-      {loading && <div>Loading</div>}
+      {(loaderStatus && loading) && <Loader/>}
       {children}
       {error.header && <NoData title={error.header} message={error.message}/>}
     </main>

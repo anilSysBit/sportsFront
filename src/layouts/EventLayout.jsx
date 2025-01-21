@@ -10,6 +10,7 @@ const EventLayout = () => {
         data:null,
         total_pages:1,
     })
+    const [status,setStatus] = useState('')
 
     const navigate = useNavigate();
 
@@ -46,7 +47,10 @@ const EventLayout = () => {
     const apiData = {
       url:`${import.meta.env.VITE_API_URL}/api/events/`,
       search:'',
-      headers:{}
+      headers:{},
+      query:{
+        status:''
+      }
     }
   return (
     <>
@@ -62,20 +66,24 @@ const EventLayout = () => {
         <h1 className="events__title">Open For Events</h1>
         <div className="events__grid">
           {fetchedData.data && fetchedData.data.map((event, index) => (
-            <div key={index} className="events__card">
+            <Link to={`/event/${event.id}/`} key={index} className="events__card">
               <div className="events__card-image">
                 <img src={event?.banner || defaultNoBanner} alt={event?.title} />
               </div>
+              <div className="detail_box">
               <h3 className="events__card-title">{event?.title}</h3>
               <p className="events__card-date">{event?.date}</p>
               <p className="events__card-detail">Entry Fee : {event?.entry_fee}</p>
-              <p className="events__card-detail">Registration From {formatDatetime(event?.registration_start_date)} - {formatDatetime(event?.registration_end_date)}</p>
-              <p className="events__card-detail">Event will Start - {formatDatetime(event?.event_start_date)}</p>
-              <div className="events__card-buttons">
-                <button className="details" onClick={()=>navigate(`/event/${event?.id}`)}>Event Detail</button>
-                {/* <button className="scores">Scores</button> */}
+              <p className="events__card-detail">Registration {formatDatetime(event?.registration_start_date)} - {formatDatetime(event?.registration_end_date)}</p>
+              <p className="events__card-detail">Starts from - {formatDatetime(event?.event_start_date)}</p>
               </div>
-            </div>
+              <div className="events__card-buttons">
+                {/* <button className="details" onClick={()=>navigate(`/event/${event?.id}`)}>Event Detail</button> */}
+                {/* <button className="global_btn">View More</button> */}
+                {/* <button className="scores">Scores</button> */}
+                {/* <p>Click to View</p> */}
+              </div>
+            </Link>
           ))}
         </div>
       </main>
