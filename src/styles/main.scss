@@ -2001,13 +2001,13 @@ $breakpoint-lg: 1024px;
   margin: 0 auto;
   // min-height: 70vh;
   &__title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 500;
     margin-bottom: 2rem;
     text-align: center;
     // background: linear-gradient(135deg, $primary, $secondary);
     color: white;
-    margin-top: 30px;
+    margin-top: 10px;
   }
 
   &__grid {
@@ -2465,7 +2465,7 @@ $breakpoint-lg: 1024px;
 
 
 // team listing
-$dark-bg: #1f1f1f;
+$dark-bg: #212121;
 $accent-color: #ff9800;
 $hover-shadow: rgba(0, 0, 0, 0.4);
 
@@ -2574,6 +2574,7 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
 
 .match-card {
   background-color: $dark-bg;
+  // background-color: #05121a;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 0px 6px rgba(152, 150, 150, 0.1);
@@ -2598,9 +2599,9 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
     justify-content: center;
     align-items: center;
     // gap: 20px;
+    // border: 1px solid white;
     justify-content: space-between;
 
- 
 
     .vs {
       font-size: 1.5rem;
@@ -2614,30 +2615,37 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
     // border: 1px solid white;
     &.middle{
       width: 50%;
-      // display: flex;
-      // place-content: center;
+      // border: 1px solid white;
       place-items: center;
-      flex-direction: column;
-      // gap: 10px;
-      // padding: 10px;
+      .event_name{
+        font-size: 1rem;
+      }
+      h2{
+        margin: 0;
+      }
       .match-details{
+        margin-top: 10px;
         text-align: center;
+        // border: 1px solid white;
         // margin-top: 10px;
 
-
         p{
-          font-size: 1rem;
+          font-size: 0.8rem;
         }
       }
       .leaderboard_button{
-        min-width: 200px;
-        margin: 5px;
+        // min-width: 200px;
+        margin-top: 10px;
+        min-height: 30px;
+        font-size: 0.9rem;
       }
     }
     &.team-box{
       display: flex;
       place-content: center;
       place-items: center;
+      // border: 1px solid white;
+
       // height: 100%;
       img{
         // width: 100%
@@ -2648,16 +2656,20 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
   .team-details {
     display: flex;
     flex-direction: column;
+    place-content: center;
     align-items: center;
     width: 100%;
     // border: 1px solid blue;
     height: 100%;
+
     .team-logo {
+      border: 0.5px solid var(--footer_color);
+      background-color: var(--footer_color);
       object-fit: cover;
-      object-position: center;
+      object-position: top;
       border-radius: 20px;
-      height: 150px;
-      width: 150px;
+      height: 80px;
+      width: 80px;
       border-radius: 50%;
       
     }
@@ -2665,7 +2677,7 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
     .team-name {
       color: #fff;
       // font-size: 1.2rem;
-      font-size: 1rem;
+      font-size: 0.9rem;
       margin-top: 5px;
     }
   }

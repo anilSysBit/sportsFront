@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import EventBanner from '/images/eventbanner1.png'
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import LoadingPageLayout from './LoadingPageLayout';
 const EventLayout = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -52,18 +52,25 @@ const EventLayout = () => {
         status:''
       }
     }
+    const [reload,setReload] = useState(false);
+    
+    const handleReload = ()=>{
+      setReload(!reload);
+    }
+    const searchParams = new URLSearchParams(window.location.search)
+    const type = searchParams.get('type')
   return (
     <>
-    <LoadingPageLayout apiUrl={apiData?.url} isResponseArray={true} setFetchedData={setFetchedData} fetchedData={fetchedData}>
+    <LoadingPageLayout apiUrl={apiData?.url} reload={reload} isResponseArray={true} setFetchedData={setFetchedData} fetchedData={fetchedData}>
     <div className="event_nav">
       <ul>
-        <li className=''>Ongoing</li>
-        <li className='active'> Open</li>
-        <li className=''>Over</li>
+        <Link to={`?type=1`} onClick={handleReload}><li className={type == 1 && 'active'}>Ongoing</li></Link>
+        <Link to={`/events`} onClick={handleReload}><li className={!type && 'active'}> Open</li></Link>
+        <Link to={`?type=2`} onClick={handleReload}><li className={type ==2 && 'active'}>Over</li></Link>
       </ul>
     </div>
     <main className="events gb_container">
-        <h1 className="events__title">Open For Events</h1>
+        <h2 className="events__title">Events ({fetchedData?.data?.length || 0})</h2>
         <div className="events__grid">
           {fetchedData.data && fetchedData.data.map((event, index) => (
             <Link to={`/event/${event.slug_field || event.id}/`} key={index} className="events__card">

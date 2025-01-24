@@ -1719,12 +1719,12 @@ nav .part3 {
   margin: 0 auto;
 }
 .events__title {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 500;
   margin-bottom: 2rem;
   text-align: center;
   color: white;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 .events__grid {
   display: grid;
@@ -2148,7 +2148,7 @@ nav .part3 {
   position: absolute;
   z-index: 10;
   top: 0;
-  background-color: rgba(31, 31, 31, 0.8);
+  background-color: rgba(33, 33, 33, 0.8);
   transition: 0.5s ease-in-out;
   height: 100%;
 }
@@ -2179,7 +2179,7 @@ nav .part3 {
 }
 
 .match-card {
-  background-color: #1f1f1f;
+  background-color: #212121;
   border-radius: 10px;
   padding: 10px;
   box-shadow: 0 0px 6px rgba(152, 150, 150, 0.1);
@@ -2210,17 +2210,24 @@ nav .part3 {
 .match-card .side.middle {
   width: 50%;
   place-items: center;
-  flex-direction: column;
+}
+.match-card .side.middle .event_name {
+  font-size: 1rem;
+}
+.match-card .side.middle h2 {
+  margin: 0;
 }
 .match-card .side.middle .match-details {
+  margin-top: 10px;
   text-align: center;
 }
 .match-card .side.middle .match-details p {
-  font-size: 1rem;
+  font-size: 0.8rem;
 }
 .match-card .side.middle .leaderboard_button {
-  min-width: 200px;
-  margin: 5px;
+  margin-top: 10px;
+  min-height: 30px;
+  font-size: 0.9rem;
 }
 .match-card .side.team-box {
   display: flex;
@@ -2230,23 +2237,26 @@ nav .part3 {
 .match-card .team-details {
   display: flex;
   flex-direction: column;
+  place-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
 }
 .match-card .team-details .team-logo {
+  border: 0.5px solid var(--footer_color);
+  background-color: var(--footer_color);
   -o-object-fit: cover;
      object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
+  -o-object-position: top;
+     object-position: top;
   border-radius: 20px;
-  height: 150px;
-  width: 150px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
 }
 .match-card .team-details .team-name {
   color: #fff;
-  font-size: 1rem;
+  font-size: 0.9rem;
   margin-top: 5px;
 }
 

@@ -56,7 +56,7 @@ const MatchesTable = () => {
   const apiData = {
     url:`${import.meta.env.VITE_API_URL}/api/matches/`,
   }
-
+  
   return (
     <LoadingPageLayout apiUrl={apiData?.url} isResponseArray setFetchedData={setFetchedData}>
       <div className="match_listing">

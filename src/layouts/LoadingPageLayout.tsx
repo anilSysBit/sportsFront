@@ -17,6 +17,7 @@ interface LoadingPageLayoutProps{
   query?:object;
   loaderStatus?:boolean;
   showEmptyArrayStatus?:boolean;
+  reload?:boolean;
 }
 
 interface Error {
@@ -24,7 +25,7 @@ interface Error {
   message?: string;
 }
 
-const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,apiUrl,fetchedData,setFetchedData,auth=false,isResponseArray=false,isResponseObject=false,query,loaderStatus=true,showEmptyArrayStatus=true}) => {
+const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,apiUrl,fetchedData,setFetchedData,auth=false,isResponseArray=false,isResponseObject=false,query,loaderStatus=true,showEmptyArrayStatus=true,reload}) => {
   const [loading,setLoading] = useState<boolean>(false);
   const [error,setError] = useState<Error>({
     header:'',
@@ -108,7 +109,7 @@ const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,a
 
   useEffect(()=>{
     fetchFunction();
-  },[])
+  },[reload])
 
   
 

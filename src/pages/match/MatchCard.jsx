@@ -17,11 +17,11 @@ const MatchCard = ({ match }) => {
 
         </div>
         <div className="middle side">
-          <p>{event?.title}</p>
-            <h2>Vs</h2>
+          <p className="event_name">{event?.title}</p>
+            {/* <h2>Vs</h2> */}
             <div className="match-details">
             <p> Match on {match_date} at {match_time}</p>
-            <p><strong>Location:</strong> {place}</p>
+            <p className="sm_text">{match.address}</p>
             </div>
             <div>
             <button className="leaderboard_button" onClick={()=>navigate(`/match/${match?.id}`)}>View Match</button>
