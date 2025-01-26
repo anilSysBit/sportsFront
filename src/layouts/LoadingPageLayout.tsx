@@ -62,10 +62,16 @@ const LoadingPageLayout: React.FC<LoadingPageLayoutProps> = ({ children, title,a
               data:response.data
             }))
 
+
             if (showEmptyArrayStatus && response.data.length < 1){
               setError({
                 header:"No Data Found",
                 message:'Data is empty'
+              })
+            }else{
+              setError({
+                header:'',
+                message:''
               })
             }
           }

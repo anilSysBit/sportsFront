@@ -6,23 +6,21 @@ const About = () => {
       <div className="about_container">
         <div className="heading">
           <p className="bold_span">ABOUT US</p>
-          <h1>SPORTS MANAGEMENT</h1>
+          <h1>GAME PLAN NEPAL</h1>
 
           <div className="achievement">
             <h2>
-              ORGANIZED MORE THAN <span className="big_primary">100+</span>{" "}
+              ORGANIZED MORE THAN <span className="big_primary">10+</span>{" "}
               FOOTBALL EVENTS OVERALL NEPAL
             </h2>
           </div>
         </div>
         <div className="other_info">
           <p>
-            Nepal Sports Organization excels in organizing online sports data.
-            Specializing in match statistics, live updates, and innovative
-            dashboards, we offer comprehensive insights into tournaments, player
-            performances, and standings.
+          Game Plan Nepal is dedicated to revolutionizing the way sports data is managed and presented in Nepal. Specializing in football events, we provide a platform that offers in-depth match statistics, live updates, and dynamic dashboards. Our goal is to make sports data more accessible, accurate, and engaging for fans, teams, and organizers alike. Through our platform, visitors can explore detailed tournament insights, track player performances, view match schedules, and stay updated on standings. Whether you are a football enthusiast, a team member, or an event organizer, Nepal Sports Organization ensures you have the tools and information you need to stay connected with the sport. Join us in transforming the sports experience and stay informed with the latest updates from the world of football.
+
           </p>
-          <p className="bold_span read">Read More . . . </p>
+          {/* <p className="bold_span read">Read More . . . </p> */}
 
           <div className="sponsors">
             <img

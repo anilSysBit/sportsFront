@@ -18,7 +18,7 @@ const SponserPage:React.FC = () => {
   return (
     <LoadingPageLayout apiUrl={url} isResponseArray setFetchedData={setFetchedData}>
         <h2>Sponsers</h2>
-        <SponserBanner/>
+        {/* <SponserBanner/> */}
         <div className="news_list sponsers_page">
             {fetchedData.data && fetchedData.data.map((elem,index)=>{
                 return(

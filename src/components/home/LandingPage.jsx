@@ -13,14 +13,14 @@ const LandingPage = () => {
             <div className="circle"></div>
             <div className="shadow"></div>
           </div>
-          2024<br /><span>Nepal Games</span>
+          2025<br /><span>Game Plan Nepal</span>
         </h1>
         <p>
           Champions' empowerment, excellence nurtured <br />
-          - Welcome to Sundarbazzer Sports, where dedication leads to success.
+          - Welcome to Game Plan Nepal, where dedication leads to success.
         </p>
 
-        <Link to="/leaderboard">
+        <Link to="/events?type=1">
           <button className="leaderboard_button">View Ongoing Events</button>
         </Link>
       </section>

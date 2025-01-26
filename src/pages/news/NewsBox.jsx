@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { staticNews } from '../../components/static/static_news'
 import NewsCard from './NewsCard'
 import LoadingPageLayout from '../../layouts/LoadingPageLayout'
+import { Link } from 'react-router-dom'
 
 
 const NewsBox = ({onFront=false}) => {
@@ -28,7 +29,7 @@ const url = onFront ? `${import.meta.env.VITE_API_URL}/api/recent-news?count=4` 
                 )
             })}
         </div>
-        <button className="global_btn outline">View More News</button>
+        <Link to="/news"><button className="global_btn outline">View More News</button></Link>
     </div>
    </LoadingPageLayout>
   )

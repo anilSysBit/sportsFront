@@ -3,7 +3,8 @@ import MatchCard from "./MatchCard";
 import axios from "axios";
 import NoData from "../../components/global/NoData";
 import LoadingPageLayout from "../../layouts/LoadingPageLayout";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { Search } from "@mui/icons-material";
 
 const MatchesTable = () => {
 
@@ -57,10 +58,28 @@ const MatchesTable = () => {
     url:`${import.meta.env.VITE_API_URL}/api/matches/`,
   }
   
+  const [refresh,setRefresh] = useState(true);
+  const [searchTerm,setSearchTerm] = useState('');
+
+  const navigate = useNavigate();
+  const handleSearch =()=>{
+    if(searchTerm){
+      navigate(`/matches?search=${searchTerm}`)
+    }else{
+      navigate('/matches');
+    }
+    setRefresh(!refresh)
+
+  }
+  
   return (
-    <LoadingPageLayout apiUrl={apiData?.url} isResponseArray setFetchedData={setFetchedData}>
+    <LoadingPageLayout apiUrl={apiData?.url} reload={refresh} isResponseArray setFetchedData={setFetchedData}>
       <div className="match_listing">
         <h2 className="txt-center">Matches</h2>
+        <div className="filter_box">
+        <input type="search" placeholder="Search" onChange={e=>setSearchTerm(e.target.value)} value={searchTerm}/>
+        <button className="global_btn" onClick={handleSearch}><Search/></button>
+        </div>
         {(fetchedData.data && fetchedData.data.length > 0)  && fetchedData.data.map((match,index)=>{
             return(
                 <MatchCard match={match} key={index}/>

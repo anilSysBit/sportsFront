@@ -1,5 +1,6 @@
 import React, { useState,useEffect } from 'react'
 import NewsCard from './NewsCard';
+import { Link } from 'react-router-dom';
 
 const RecentNewsPage = () => {
     const [fetchedData,setFetchedData] = useState({
@@ -54,7 +55,7 @@ const RecentNewsPage = () => {
             })}
         </div>
 
-        <button className="global_btn outline">View More News</button>
+        <Link to={'/news'}><button className="global_btn outline">View More News</button></Link>
     </div>
   )
 }

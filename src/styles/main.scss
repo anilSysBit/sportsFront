@@ -2454,6 +2454,30 @@ $breakpoint-lg: 1024px;
 .match_listing{
   margin-top: 20px;
   padding: 0px 50px;
+  .filter_box{
+    margin-bottom: 20px;
+    display: flex;
+    // place-content: center;
+    place-items: center;
+    gap: 5px;
+    button{
+      margin: 0;
+      border-radius: 10px;
+      min-width: 30px;
+    }
+    input{
+      min-height: 40px;
+      // border: 1px solid white;
+      border: none;
+      border-radius: 10px;
+      color: white;
+
+      background-color: var(--footer_color);
+      padding: 10px;
+      min-width: 25%;
+
+    }
+  }
   h2{
     font-size: 2rem;
     margin-top: 20px;
@@ -3049,7 +3073,7 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
 
 
 .footer_container{
-  margin-top: 50px;
+  margin-top: 10px;
   // border: 2px solid white;
   // max-height: 50vh;
   // height: 40vh;
@@ -3064,11 +3088,11 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
   .other_details{
     // border: 1px solid white;
     // height: 70%;
-    height: 40vh;
+    // height: 40vh;/
     display: flex;
     gap: 20px;
     padding: 20px;
-    justify-content: space-around;
+    justify-content: space-between;
     .description{
       width: 40%;
       p{
@@ -3082,7 +3106,7 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
       li{
         margin-bottom: 10px;
         a{
-          font-size: 1rem;
+          font-size: 0.8rem;
           &:hover{
             text-decoration: underline;
           }
@@ -3106,6 +3130,18 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
     text-align: center;
     p{
       font-size: 1rem;
+    }
+  }
+  .contact_info{
+    // display: flex;
+    // justify-content: space-around;
+    min-height: 10vh;
+    padding: 20px;
+    p,a{
+      display: flex;
+      gap: 10px;
+      font-size: 0.9rem;
+      margin-bottom: 5px;
     }
   }
 }
@@ -3279,7 +3315,7 @@ $hover-shadow: rgba(0, 0, 0, 0.4);
   padding: 20px;
   gap: 10px;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 10vh;
   .box{
     padding: 10px;
     .header{
