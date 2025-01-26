@@ -34,6 +34,10 @@ h1 {
   text-decoration: underline;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .mt-5 {
   margin-top: 5px;
 }
@@ -109,10 +113,10 @@ a {
   border: 2px solid blackr;
 }
 .wrapper .circle {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   position: absolute;
-  background-image: url("/images/football.svg");
+  background-image: url("/images/ball2.png");
   background-position: center center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -2079,29 +2083,31 @@ nav .part3 {
   background-color: black;
 }
 
-.match_listing {
-  margin-top: 20px;
-  padding: 0px 50px;
-}
-.match_listing .filter_box {
+.filter_box {
   margin-bottom: 20px;
   display: flex;
+  justify-content: right;
   place-items: center;
   gap: 5px;
 }
-.match_listing .filter_box button {
+.filter_box button {
   margin: 0;
   border-radius: 10px;
   min-width: 30px;
 }
-.match_listing .filter_box input {
+.filter_box input {
   min-height: 40px;
   border: none;
   border-radius: 10px;
   color: white;
   background-color: var(--footer_color);
-  padding: 10px;
+  padding-left: 20px;
   min-width: 25%;
+}
+
+.match_listing {
+  margin-top: 20px;
+  padding: 0px 50px;
 }
 .match_listing h2 {
   font-size: 2rem;
@@ -2149,7 +2155,7 @@ nav .part3 {
 }
 .team-card .team-logo {
   width: 100%;
-  height: 200px;
+  height: 250px;
   overflow: hidden;
 }
 .team-card .team-logo img {
@@ -2621,17 +2627,18 @@ nav .part3 {
 .footer_container .copyright p {
   font-size: 1rem;
 }
-.footer_container .contact_info {
-  min-height: 10vh;
-  padding: 20px;
-}
 .footer_container .contact_info p, .footer_container .contact_info a {
   display: flex;
   gap: 10px;
   font-size: 0.9rem;
   margin-bottom: 5px;
 }
-
+.footer_container .midline_block {
+  min-height: 10vh;
+  padding: 20px;
+  display: flex;
+  gap: 2rem;
+}
 .subscribe_container {
   display: flex;
   place-content: center;
@@ -2792,10 +2799,10 @@ nav .part3 {
   gap: 20px;
 }
 .sponser_banner .box .img_box.flex img {
-  height: 70px;
+  height: 50px;
 }
 .sponser_banner .box .img_box img {
-  height: 100px;
+  height: 60px;
   width: 100%;
   max-width: 200px;
   -o-object-fit: contain;
@@ -2815,4 +2822,71 @@ nav .part3 {
   place-content: center;
   place-items: center;
   background-color: rgba(48, 48, 48, 0.7);
+}
+
+.news_detail_container {
+  font-size: 0.9rem;
+}
+.news_detail_container .header {
+  text-align: center;
+}
+.news_detail_container .img_box {
+  min-height: 30vh;
+  background-color: var(--footer_color);
+  border-radius: 10px;
+  display: flex;
+  margin-bottom: 20px;
+}
+.news_detail_container .img_box img {
+  margin: auto;
+  width: auto;
+  height: auto;
+  max-height: 30vh;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+}
+.news_detail_container p {
+  font-size: 0.9rem;
+}
+.news_detail_container ul li {
+  list-style-type: disc;
+  margin-left: 30px;
+}
+.news_detail_container .flex-box {
+  display: flex;
+  place-items: center;
+  gap: 20px;
+}
+.news_detail_container img {
+  margin: auto;
+  width: auto;
+  max-height: 300px;
+  border-radius: 10px;
+}
+.news_detail_container img:nth-child(odd) {
+  float: right;
+}
+
+.sponsers_page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+.sponsers_page .img_box {
+  height: 300px;
+  background-color: var(--footer_color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.sponsers_page .img_box img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+.sponsers_page .name {
+  font-size: 0.9rem;
+  text-align: center;
 }/*# sourceMappingURL=main.css.map */

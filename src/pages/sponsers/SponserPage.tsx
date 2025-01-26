@@ -3,6 +3,8 @@ import LoadingPageLayout from '../../layouts/LoadingPageLayout'
 import NewsCard from '../news/NewsCard';
 import PhotoGallery from '../../components/elements/PhotoGallery';
 import SponserBanner from '../../components/global/SponserBanner';
+import MatchCard from '../match/MatchCard';
+import { Link } from 'react-router-dom';
 
 
 interface fetchType{
@@ -17,19 +19,25 @@ const SponserPage:React.FC = () => {
     let url:string = `${import.meta.env.VITE_API_URL}/api/sponsers/`
   return (
     <LoadingPageLayout apiUrl={url} isResponseArray setFetchedData={setFetchedData}>
-        <h2>Sponsers</h2>
-        {/* <SponserBanner/> */}
-        <div className="news_list sponsers_page">
-            {fetchedData.data && fetchedData.data.map((elem,index)=>{
-                return(
-                    <NewsCard
-                        header={elem?.name} 
-                        image={elem?.logo} 
-                        description={elem?.small_description}
-                        
-                        />
-                )
-            })}
+        <div className="team_page_container">
+        <h2 className='txt-center mt-10'>Sponsers</h2>
+        <div className="team-list">
+        {fetchedData.data && fetchedData.data.map((team, index) => (
+          <div className="team-card">
+            <div className="team-logo">
+              <img src={team?.logo} alt={team?.name} />
+            </div>
+            {/* <p className='short_name'>{team.name}</p> */}
+
+            <div className="team-details">
+              <p className='team-name'>{team?.name}</p>
+              <p className='sm_text mt-5'>{team?.small_description}</p>
+            
+            <a href={team?.link} target='_blank'><button className="global_btn">View More </button></a>
+            </div>
+          </div>
+        ))}
+      </div> 
         </div>
     </LoadingPageLayout>
   )

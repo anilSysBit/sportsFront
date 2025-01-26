@@ -71,6 +71,11 @@ const MatchesTable = () => {
     setRefresh(!refresh)
 
   }
+  useEffect(()=>{
+    const searchParam = new URLSearchParams(window.location.search)
+    const search = searchParam.get('search')
+    setSearchTerm(search)
+  },[])
   
   return (
     <LoadingPageLayout apiUrl={apiData?.url} reload={refresh} isResponseArray setFetchedData={setFetchedData}>

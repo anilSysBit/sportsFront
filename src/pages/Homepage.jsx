@@ -5,13 +5,17 @@ import NewsBox from './news/NewsBox'
 import RecentNewsPage from './news/RecentNewsPage'
 import SubscribeBox from '../components/global/SubscribeBox'
 import SponserBanner from '../components/global/SponserBanner'
+// import SimpleSlider from '../components/elements/CustomSlider'
 
 const Homepage = () => {
+
+  
   return (
     <>
         <LandingPage/>
         <About/>
-        <NewsBox onFront={true}/>
+        {/* <NewsBox onFront={true}/> */}
+        <RecentNewsPage/>
         {/* <SponserBanner/> */}
         <SubscribeBox/>
         </>

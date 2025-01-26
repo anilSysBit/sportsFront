@@ -1,56 +1,44 @@
 import React, { useState,useEffect } from 'react'
 import NewsCard from './NewsCard';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 const RecentNewsPage = () => {
     const [fetchedData,setFetchedData] = useState({
         data:null
     })
 
-    const fakeData = [
-        {
-          id: 1,
-          header: "Nature's Beauty",
-          image: "https://picsum.photos/200/300?random=1",
-          description: "Explore the serene landscapes and breathtaking views of nature.",
-        },
-        {
-          id: 2,
-          header: "Urban Vibes",
-          image: "https://picsum.photos/200/300?random=2",
-          description: "Dive into the hustle and bustle of city life with vibrant architecture.",
-        },
-        {
-          id: 3,
-          header: "Adventure Awaits",
-          image: "https://picsum.photos/200/300?random=3",
-          description: "Get ready for thrilling adventures and explore the unexplored.",
-        },
-        {
-          id: 4,
-          header: "Cultural Heritage",
-          image: "https://picsum.photos/200/300?random=4",
-          description: "Discover rich traditions and cultural landmarks around the world.",
-        },
-        
-      ];
+    const fetchData =async()=>{
+      try{
+        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/recent-news?count=4`)
+        setFetchedData(prev =>({
+          ...prev,
+          data:response.data
+        }))
 
+        console.log(response)
+      }catch(error){
+        console.log(error)
+      }
+    }
 
       useEffect(()=>{
-        setFetchedData(prev =>({
-            ...prev,
-            data:fakeData
-        }))
+        fetchData();
       },[])
       
   return (
     <div className="news_box_container">
         <h2>Recent News</h2>
-
+    
         <div className="news_list">
             {fetchedData.data && fetchedData.data.map((elem,index)=>{
                 return(
-                    <NewsCard elem={elem} key={index}/>
+                    <NewsCard 
+                      header={elem?.title}
+                      description={elem?.sm_text}
+                      image={elem?.image}
+                      date={elem?.start_date}
+                    />
                 )
             })}
         </div>

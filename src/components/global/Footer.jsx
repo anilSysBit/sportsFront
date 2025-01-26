@@ -1,6 +1,6 @@
-import { Email, LocationCity, Phone } from '@mui/icons-material';
+import { Email, LocationCity, Phone, WhatsApp } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Footer = () => {
 
@@ -19,7 +19,6 @@ const Footer = () => {
 
   return (
     <div className="footer_container">
-      {isHomeLocation && <div className='home_footer_space'></div>}
       <div className={`other_details`}>
         <div className="description">
           <h2>Game Plan Nepal</h2>
@@ -32,20 +31,34 @@ const Footer = () => {
           <li><a href="/teams">Teams</a></li>
           <li><a href="/events">Events</a></li>
           <li><a href="/sponsers">Sponsers</a></li>
-          <li><a href="/sponsers">Privacy and Policy</a></li>
+          <li><a href="/privacy-and-policy">Privacy and Policy</a></li>
         </ul>
 
         <div className="button_group">
           {/* <img src="/src/assets/images/loginorganizer.png" alt="" /> */}
-          <button className="global_btn">Register Your Team</button>
-          <button className="global_btn outline">Apply as Sponser</button>
+          <Link to={'/register'}><button className="global_btn">Register Your Team</button></Link>
+          {/* <Link><button className="global_btn outline">Apply as Sponser</button></Link> */}
         </div>
       </div>
+      <div className="midline_block">
       <div className="contact_info">
-        <p className='underline'>Contact Information</p>
+        <p className='underline bold'>Contact Information</p>
           <p><a href="tel:+9779816284342"><Phone/> 9816284342</a></p>
-          <p><a href="mailto:anil.wagle808@gmail.com"><Email/> anil.wagle808@gmail.com</a></p>
+          <p><a href="mailto:anil.wagle808@gmail.com"><Email/> gpn2025@gmail.com</a></p>
           <p> <LocationCity/>Khairahani-1, Chitwan</p>
+      </div>
+      <div className="contact_info">
+        <p className='underline bold'>For Support</p>
+        <p><a href="mailto:anil.wagle808@.com"><Email/> support@gpn.com</a></p>
+
+      </div>
+      <div className="contact_info">
+        <p className='underline bold'>Messaging</p>
+            <a href="https://wa.me/9779816284342" target="_blank" rel="noopener noreferrer">
+      <WhatsApp/> Chat via WhatsApp
+</a>
+
+      </div>
       </div>
         <div className="copyright">
             <p>Game Plan Nepal , ©
