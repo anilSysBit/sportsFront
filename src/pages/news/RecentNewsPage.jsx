@@ -27,13 +27,14 @@ const RecentNewsPage = () => {
       },[])
       
   return (
-    <div className="news_box_container">
+    <div className="news_box_container recent_news">
         <h2>Recent News</h2>
     
         <div className="news_list">
             {fetchedData.data && fetchedData.data.map((elem,index)=>{
                 return(
-                    <NewsCard 
+                    <NewsCard
+                      id={elem?.id}
                       header={elem?.title}
                       description={elem?.sm_text}
                       image={elem?.image}

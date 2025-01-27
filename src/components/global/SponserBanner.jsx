@@ -20,7 +20,11 @@ const SponserBanner = () => {
         },
       ];
   return (
-    <div className="sponser_banner">
+
+       <div className="sponser_banner">
+        {/* <marquee behavior="" direction="">Hello World is the name</marquee> */}
+         <marquee behavior="alternate" direction="right" loop="1">
+            <div className="after_marquee">
         <div className="box1 box">
             <p className='header'>Title Sponser</p>
             <div className="img_box">
@@ -56,7 +60,45 @@ const SponserBanner = () => {
                 })}
             </div>
         </div>
+
+        <div className="box2 box">
+            <p className="header">Service Partners</p>
+            <div className="img_box flex">
+                {[5,6,7].map((elem,index)=>{
+                    return(
+                        <img src={`https://picsum.photos/100/100?random=${elem}`} />
+                    )
+                })}
+            </div>
+        </div>
+        <div className="box1 box">
+            <p className='header'>Title Sponser</p>
+            <div className="img_box">
+                <img src="https://documents.iplt20.com//ipl/assets/images/new-sponsor-tata-logo.svg" alt="" />
+            </div>
+        </div>
+
+        <div className="box2 box">
+            <p className="header">Associate Partners</p>
+            <div className="img_box flex">
+                {associates.map((elem,index)=>{
+                    return(
+                        <img src={elem?.logo || `https://picsum.photos/100/100?random=${index}`} />
+                    )
+                })}
+            </div>
+        </div>
+
+        <div className="box1 box">
+            <p className='header'>Strategic Partners</p>
+            <div className="img_box">
+                <img src="https://documents.iplt20.com//ipl/assets/images/new-sponsor-ceat-logo.svg" alt="" />
+            </div>
+        </div>
+        
     </div>
+        </marquee>
+       </div>
   )
 }
 

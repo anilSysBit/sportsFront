@@ -11,7 +11,7 @@ const NewsCard = ({header,image,description,date=null,id}) => {
                         <p className="header">{header}</p>
                         <p className='description'>{description}</p>
                         <Link to={`/news/${id}`}><button className="global_btn">View More</button></Link>
-                        <p className='sm_text mt-10'>Created on {date}</p>
+                        {/* <p className='sm_text mt-10'>Created on {date}</p> */}
                         </div>
                     </div>
   )
