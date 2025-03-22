@@ -14,8 +14,8 @@ const Homepage = () => {
     <>
         <LandingPage/>
         <About/>
-        {/* <NewsBox onFront={true}/> */}
-        <RecentNewsPage/>
+        <NewsBox onFront={true}/>
+        {/* <RecentNewsPage/> */}
         {/* <SponserBanner/> */}
         <SubscribeBox/>
         </>
